@@ -329,7 +329,12 @@
 
 	for(var/datum/mind/mind in candidates)
 		p_ckey = ckey(mind.key)
-		total_tickets += min(SSpersistence.antag_rep[p_ckey] + DEFAULT_ANTAG_TICKETS, MAX_TICKETS_PER_ROLL)
+		//altoids start -- Adds variable ticket usage for donators
+		p_rep = SSpersistence.antag_rep[p_ckey]
+		if(mind.client.prefs.antagrep_used != -1)
+			p_rep = min(SSpersistence.antag_rep[p_ckey], mind.client.prefs.antagrep_used)
+		total_tickets += min(p_rep + DEFAULT_ANTAG_TICKETS, MAX_TICKETS_PER_ROLL)
+		//altoids end
 
 	var/antag_select = rand(1,total_tickets)
 	var/current = 1
@@ -337,6 +342,10 @@
 	for(var/datum/mind/mind in candidates)
 		p_ckey = ckey(mind.key)
 		p_rep = SSpersistence.antag_rep[p_ckey]
+		//altoids start -- awkward that this must be recalculated but whatever
+		if(mind.client.prefs.antagrep_used != -1)
+			p_rep = min(SSpersistence.antag_rep[p_ckey], mind.client.prefs.antagrep_used)
+		//altoids end
 
 		var/previous = current
 		var/spend = min(p_rep + DEFAULT_ANTAG_TICKETS, MAX_TICKETS_PER_ROLL)

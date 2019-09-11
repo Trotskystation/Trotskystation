@@ -6,6 +6,7 @@
 	var/yogtoggles = YOGTOGGLES_DEFAULT
 	var/purrbation = null
 	var/afreeze = FALSE
+	var/antagrep_used = -1 //Altoids -- Determines how much spare antag rep a player has shall be used in rolling for antag. -1 denotes "Use default"
 
 	var/datum/keybindings/bindings = new
 

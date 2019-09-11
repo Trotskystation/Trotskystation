@@ -649,12 +649,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "</td>"
 			dat += "</tr></table>"
-		// yogs start - Donor features
+		// yogs & altoids start - Donor features
 		if (3) //Donator preferences
 			dat += "<table><tr><td width='500px' height='300px' valign='top'>"
-			dat += "<h2>Donator Preferences</h2>"
 			if(is_donator(user.client))
-				dat += "<b>Quiet round:</b> <a href='?_src_=prefs;preference=donor;task=quiet_round'>[(src.yogtoggles & QUIET_ROUND) ? "Yes" : "No"]</a><br>"
+				// First the cosmetic stuff
+				dat += "<h2>Cosmetic Preferences</h2>"
 				dat += "<b>Fancy Hat:</b> "
 				var/typehat = donor_hat ? donor_start_items[donor_hat] : null
 				var/temp_hat = donor_hat ? (new typehat()) : "None selected"
@@ -671,10 +671,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href='?_src_=prefs;preference=donor;task=pda'>[donor_pdas[donor_pda]]</a><BR>"
 				dat += "<b>Purrbation (Humans only)</b> "
 				dat += "<a href='?_src_=prefs;preference=donor;task=purrbation'>[purrbation ? "Yes" : "No"]</a><BR>"
+				//Now the gameplay-affecting stuff
+				dat += "</td><td width='300px' height='300px' valign='top'>"
+				dat += "<h2>Antagonist Preferences</h2>"
+				dat += "<b>Quiet round:</b> <a href='?_src_=prefs;preference=donor;task=quiet_round'>[(src.yogtoggles & QUIET_ROUND) ? "Yes" : "No"]</a><br>"
+				dat += "<b>Antag Rep Pool: [SSpersistence.antag_rep[user.ckey]]/[CONFIG_GET(number/antag_rep_maximum)]</b>"
+				var/used = src.antagrep_used
+				if(used == -1)
+					used = CONFIG_GET(number/max_tickets_per_roll)
+				dat += "<b>Antag Rep Used:</b> <a href='?_src_=prefs;preference=donor;task=antagrep_used'></a><br>"
+				dat += "</td>"
+				
 			else
-				dat += "<b><a href='http://www.yogstation.net/index.php?do=donate'>Donate here</b>"
+				dat += "<b>Contact Altoids for Donation Information!</b>"
+			
 			dat += "</tr></table>"
-		// yogs end
+		// yogs & altoids end
 
 		// yogs start - Custom keybindings
 		if (4) // Keybindings
@@ -1051,6 +1063,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					donor_pda = donor_pda % donor_pdas.len + 1
 				if("purrbation")
 					purrbation = !purrbation
+				//altoids start
+				if("antagrep_used")
+					var/used = input(user, "Choose your desired amount of tickets to use when rolling for antagonist. Cannot be more than the default. (-1 = Default Value, currently [CONFIG_GET(number/max_tickets_per_roll)])", "Donator Preference", antagrep_used)  as null|num
+					if (!isnull(used))
+						if(used != -1)
+							CLAMP(used,0,CONFIG_GET(number/max_tickets_per_roll))
+						antagrep_used = used
+				//altoids end
 		else
 			message_admins("EXPLOIT \[donor\]: [user] tried to access donor only functions (as a non-donor). Attempt made on \"[href_list["preference"]]\" -> \"[href_list["task"]]\".")
 	// yogs end
