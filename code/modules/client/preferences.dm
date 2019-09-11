@@ -675,11 +675,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "</td><td width='300px' height='300px' valign='top'>"
 				dat += "<h2>Antagonist Preferences</h2>"
 				dat += "<b>Quiet round:</b> <a href='?_src_=prefs;preference=donor;task=quiet_round'>[(src.yogtoggles & QUIET_ROUND) ? "Yes" : "No"]</a><br>"
-				dat += "<b>Antag Rep Pool: [SSpersistence.antag_rep[user.ckey]]/[CONFIG_GET(number/antag_rep_maximum)]</b>"
+				var/rep = SSpersistence.antag_rep[user.ckey]
+				if(!rep)
+					rep = 0
+				dat += "<b>Antag Rep Pool: [rep]/[CONFIG_GET(number/antag_rep_maximum)]</b><br>"
 				var/used = src.antagrep_used
 				if(used == -1)
 					used = CONFIG_GET(number/max_tickets_per_roll)
-				dat += "<b>Antag Rep Used:</b> <a href='?_src_=prefs;preference=donor;task=antagrep_used'></a><br>"
+				dat += "<b>Antag Rep Used:</b> <a href='?_src_=prefs;preference=donor;task=antagrep_used'>[used]</a><br>"
 				dat += "</td>"
 				
 			else
