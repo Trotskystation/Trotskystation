@@ -331,8 +331,9 @@
 		p_ckey = ckey(mind.key)
 		//altoids start -- Adds variable ticket usage for donators
 		p_rep = SSpersistence.antag_rep[p_ckey]
-		if(mind.client.prefs.antagrep_used != -1)
-			p_rep = min(SSpersistence.antag_rep[p_ckey], mind.client.prefs.antagrep_used)
+		var/used = mind.current.client.prefs.antagrep_used
+		if(used != -1)
+			p_rep = min(SSpersistence.antag_rep[p_ckey], used)
 		total_tickets += min(p_rep + DEFAULT_ANTAG_TICKETS, MAX_TICKETS_PER_ROLL)
 		//altoids end
 
@@ -343,8 +344,9 @@
 		p_ckey = ckey(mind.key)
 		p_rep = SSpersistence.antag_rep[p_ckey]
 		//altoids start -- awkward that this must be recalculated but whatever
-		if(mind.client.prefs.antagrep_used != -1)
-			p_rep = min(SSpersistence.antag_rep[p_ckey], mind.client.prefs.antagrep_used)
+		var/used = mind.current.client.prefs.antagrep_used
+		if(used != -1)
+			p_rep = min(SSpersistence.antag_rep[p_ckey], used)
 		//altoids end
 
 		var/previous = current
