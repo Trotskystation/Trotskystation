@@ -23,11 +23,10 @@
 	create_internal_organs() //most of it is done in set_species now, this is only for parent call
 	physiology = new()
 
-	handcrafting = new()
-
 	. = ..()
 
-	AddComponent(/datum/component/redirect, list(COMSIG_COMPONENT_CLEAN_ACT = CALLBACK(src, .proc/clean_blood)))
+	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, .proc/clean_blood)
+	AddComponent(/datum/component/personal_crafting)
 
 /mob/living/carbon/human/proc/setup_human_dna()
 	//initialize dna. for spawned humans; overwritten by other code
@@ -44,9 +43,6 @@
 	QDEL_NULL(physiology)
 	return ..()
 
-
-/mob/living/carbon/human/OpenCraftingMenu()
-	handcrafting.ui_interact(src)
 
 /mob/living/carbon/human/prepare_data_huds()
 	//Update med hud images...
@@ -797,7 +793,6 @@
 	remove_all_embedded_objects()
 	set_heartattack(FALSE)
 	drunkenness = 0
-	set_hygiene(HYGIENE_LEVEL_NORMAL)
 	for(var/datum/mutation/human/HM in dna.mutations)
 		if(HM.quality != POSITIVE)
 			dna.remove_mutation(HM.name)
@@ -841,6 +836,7 @@
 	.["Copy outfit"] = "?_src_=vars;[HrefToken()];copyoutfit=[REF(src)]"
 	.["Add/Remove Quirks"] = "?_src_=vars;[HrefToken()];modquirks=[REF(src)]"
 	.["Make Cluwne"] = "?_src_=vars;[HrefToken()];cluwneing=[REF(src)]" // yogs -- make cluwne
+	.["Make Pacman"] = "?_src_=vars;[HrefToken()];makepacman=[REF(src)]" //I LOVE PACMAN
 
 /mob/living/carbon/human/MouseDrop_T(mob/living/target, mob/living/user)
 	//If they dragged themselves and we're currently aggressively grabbing them try to piggyback

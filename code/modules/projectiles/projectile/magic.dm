@@ -119,7 +119,7 @@
 /obj/item/projectile/magic/door/proc/CreateDoor(turf/T)
 	var/door_type = pick(door_types)
 	var/obj/structure/mineral_door/D = new door_type(T)
-	T.ChangeTurf(/turf/open/floor/plating)
+	T.ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 	D.Open()
 
 /obj/item/projectile/magic/door/proc/OpenDoor(var/obj/machinery/door/D)
@@ -278,7 +278,7 @@
 
 	to_chat(new_mob, "<span class='warning'>Your form morphs into that of a [randomize].</span>")
 
-	var/poly_msg = CONFIG_GET(keyed_list/policy)["polymorph"]
+	var/poly_msg = get_policy(POLICY_POLYMORPH)
 	if(poly_msg)
 		to_chat(new_mob, poly_msg)
 

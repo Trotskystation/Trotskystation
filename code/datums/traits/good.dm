@@ -94,9 +94,11 @@
 /datum/quirk/musician/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/choice_beacon/music/B = new(get_turf(H))
-	H.put_in_hands(B)
-	H.equip_to_slot(B, SLOT_IN_BACKPACK)
-	H.regenerate_icons()
+	var/list/slots = list (
+		"backpack" = SLOT_IN_BACKPACK,
+		"hands" = SLOT_HANDS,
+	)
+	H.equip_in_one_of_slots(B, slots , qdel_on_fail = TRUE)
 
 /datum/quirk/night_vision
 	name = "Night Vision"
@@ -182,20 +184,3 @@
 	gain_text = "<span class='notice'>You feel HONGRY.</span>"
 	lose_text = "<span class='danger'>You no longer feel HONGRY.</span>"
 	medical_record_text = "Patient demonstrates a disturbing capacity for eating."
-
-/datum/quirk/neet
-	name = "NEET"
-	desc = "For some reason you qualified for social welfare and you don't really care about your own personal hygiene."
-	value = 1
-	mob_trait = TRAIT_NEET
-	gain_text = "<span class='notice'>You feel useless to society.</span>"
-	lose_text = "<span class='danger'>You no longer feel useless to society.</span>"
-	mood_quirk = TRUE
-	medical_record_text = "Patient continues to qualify for welfare and has made no efforts to improve hygiene."
-
-/datum/quirk/neet/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
-	var/datum/bank_account/D = H.get_bank_account()
-	if(!D) //if their current mob doesn't have a bank account, likely due to them being a special role (ie nuke op)
-		return
-	D.welfare = TRUE

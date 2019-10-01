@@ -38,8 +38,6 @@
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
 
-	var/hygiene = HYGIENE_LEVEL_NORMAL
-
 	var/special_voice = "" // For changing our voice. Used by a symptom.
 
 	var/bleed_rate = 0 //how much are we bleeding
@@ -47,7 +45,6 @@
 
 	var/name_override //For temporary visible name changes
 
-	var/datum/personal_crafting/handcrafting
 	var/datum/physiology/physiology
 
 	var/list/datum/bioware = list()

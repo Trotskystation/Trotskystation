@@ -83,7 +83,9 @@
 	var/overlays_file = 'icons/obj/doors/airlocks/station/overlays.dmi'
 	var/note_overlay_file = 'icons/obj/doors/airlocks/station/overlays.dmi' //Used for papers and photos pinned to the airlock
 
-	var/cyclelinkeddir = 0
+	var/cyclelinkeddir = 0			//yogs note im keeping this in order to not break stuff (airlock_helpers and shutle doors)
+	var/cyclelinkedx = 0			//yogs start	negative is left positive is right
+	var/cyclelinkedy = 0			//yogs end		negative is down positive is up
 	var/obj/machinery/door/airlock/cyclelinkedairlock
 	var/shuttledocked = 0
 	var/delayed_close_requested = FALSE // TRUE means the door will automatically close the next time it's opened.
@@ -127,8 +129,11 @@
 
 /obj/machinery/door/airlock/LateInitialize()
 	. = ..()
-	if (cyclelinkeddir)
-		cyclelinkairlock()
+	if(cyclelinkedx || cyclelinkedy)	//yogs start
+		cyclelinkairlock_target()
+	else
+		if(cyclelinkeddir)
+			cyclelinkairlock()		//yogs end
 	if(abandoned)
 		var/outcome = rand(1,100)
 		switch(outcome)
@@ -162,11 +167,50 @@
 			closeOther = A
 			break
 
+/obj/machinery/door/airlock/proc/cyclelinkairlock_target()		//yogs start
+	if (cyclelinkedairlock)
+		cyclelinkedairlock.cyclelinkedairlock = null
+		cyclelinkedairlock = null
+	if(!cyclelinkedx && !cyclelinkedy)
+		return
+	var/turf/T = get_turf(src)
+	var/obj/machinery/door/airlock/FoundDoor
+	var/dirlook
+	var/targ
+	if(cyclelinkedx)
+		if(cyclelinkedx > 0)
+			targ = cyclelinkedx
+			dirlook = 4
+		else
+			targ = cyclelinkedx * -1
+			dirlook = 8
+		for(var/i = 0; i < targ; i++)
+			T = get_step(T, dirlook)
+
+	if(cyclelinkedy)
+		if(cyclelinkedy > 0)
+			targ = cyclelinkedy
+			dirlook = 1
+		else
+			targ = cyclelinkedy * -1
+			dirlook = 2
+		for(var/i = 0; i < targ; i++)
+			T = get_step(T, dirlook)
+
+	FoundDoor = locate() in T
+	if (FoundDoor && (FoundDoor.cyclelinkedy != -1 * cyclelinkedy || FoundDoor.cyclelinkedx != -1 * cyclelinkedx))
+		FoundDoor = null
+	if (!FoundDoor)
+		log_mapping("[src] at [AREACOORD(src)] failed to find a valid airlock to cyclelink_target with! Was targeting [T.x], [T.y], [T.z].")
+		return
+	FoundDoor.cyclelinkedairlock = src
+	cyclelinkedairlock = FoundDoor				//yogs end
+
 /obj/machinery/door/airlock/proc/cyclelinkairlock()
 	if (cyclelinkedairlock)
 		cyclelinkedairlock.cyclelinkedairlock = null
 		cyclelinkedairlock = null
-	if (!cyclelinkeddir)
+	if(!cyclelinkeddir)
 		return
 	var/limit = world.view
 	var/turf/T = get_turf(src)
@@ -187,6 +231,10 @@
 /obj/machinery/door/airlock/vv_edit_var(var_name)
 	. = ..()
 	switch (var_name)
+		if ("cyclelinkedx")				//yogs start
+			cyclelinkairlock_target()
+		if ("cyclelinkedy")
+			cyclelinkairlock_target()	//yogs end
 		if ("cyclelinkeddir")
 			cyclelinkairlock()
 
@@ -632,47 +680,47 @@
 				update_icon(AIRLOCK_CLOSED)
 
 /obj/machinery/door/airlock/examine(mob/user)
-	..()
+	. = ..()
 	if(obj_flags & EMAGGED)
-		to_chat(user, "<span class='warning'>Its access panel is smoking slightly.</span>")
+		. += "<span class='warning'>Its access panel is smoking slightly.</span>"
 	if(charge && !panel_open && in_range(user, src))
-		to_chat(user, "<span class='warning'>The maintenance panel seems haphazardly fastened.</span>")
+		. += "<span class='warning'>The maintenance panel seems haphazardly fastened.</span>"
 	if(charge && panel_open)
-		to_chat(user, "<span class='warning'>Something is wired up to the airlock's electronics!</span>")
+		. += "<span class='warning'>Something is wired up to the airlock's electronics!</span>"
 	if(note)
 		if(!in_range(user, src))
-			to_chat(user, "There's a [note.name] pinned to the front. You can't read it from here.")
+			. += "There's a [note.name] pinned to the front. You can't read it from here."
 		else
-			to_chat(user, "There's a [note.name] pinned to the front...")
-			note.examine(user)
+			. += "There's a [note.name] pinned to the front..."
+			. += note.examine(user)
 
 	if(panel_open)
 		switch(security_level)
 			if(AIRLOCK_SECURITY_NONE)
-				to_chat(user, "Its wires are exposed!")
+				. += "Its wires are exposed!"
 			if(AIRLOCK_SECURITY_METAL)
-				to_chat(user, "Its wires are hidden behind a welded metal cover.")
+				. += "Its wires are hidden behind a welded metal cover."
 			if(AIRLOCK_SECURITY_PLASTEEL_I_S)
-				to_chat(user, "There is some shredded plasteel inside.")
+				. += "There is some shredded plasteel inside."
 			if(AIRLOCK_SECURITY_PLASTEEL_I)
-				to_chat(user, "Its wires are behind an inner layer of plasteel.")
+				. += "Its wires are behind an inner layer of plasteel."
 			if(AIRLOCK_SECURITY_PLASTEEL_O_S)
-				to_chat(user, "There is some shredded plasteel inside.")
+				. += "There is some shredded plasteel inside."
 			if(AIRLOCK_SECURITY_PLASTEEL_O)
-				to_chat(user, "There is a welded plasteel cover hiding its wires.")
+				. += "There is a welded plasteel cover hiding its wires."
 			if(AIRLOCK_SECURITY_PLASTEEL)
-				to_chat(user, "There is a protective grille over its panel.")
+				. += "There is a protective grille over its panel."
 	else if(security_level)
 		if(security_level == AIRLOCK_SECURITY_METAL)
-			to_chat(user, "It looks a bit stronger.")
+			. += "It looks a bit stronger."
 		else
-			to_chat(user, "It looks very robust.")
+			. += "It looks very robust."
 
 	if(issilicon(user) && (!stat & BROKEN))
-		to_chat(user, "<span class='notice'>Shift-click [src] to [ density ? "open" : "close"] it.</span>")
-		to_chat(user, "<span class='notice'>Ctrl-click [src] to [ locked ? "raise" : "drop"] its bolts.</span>")
-		to_chat(user, "<span class='notice'>Alt-click [src] to [ secondsElectrified ? "un-electrify" : "permanently electrify"] it.</span>")
-		to_chat(user, "<span class='notice'>Ctrl-Shift-click [src] to [ emergency ? "disable" : "enable"] emergency access.</span>")
+		. += "<span class='notice'>Shift-click [src] to [ density ? "open" : "close"] it.</span>"
+		. += "<span class='notice'>Ctrl-click [src] to [ locked ? "raise" : "drop"] its bolts.</span>"
+		. += "<span class='notice'>Alt-click [src] to [ secondsElectrified ? "un-electrify" : "permanently electrify"] it.</span>"
+		. += "<span class='notice'>Ctrl-Shift-click [src] to [ emergency ? "disable" : "enable"] emergency access.</span>"
 
 /obj/machinery/door/airlock/attack_ai(mob/user)
 	if(!canAIControl(user))
@@ -951,6 +999,9 @@
 		cable.plugin(src, user)
 	else if(istype(C, /obj/item/airlock_painter))
 		change_paintjob(C, user)
+	else if(istype(C, /obj/item/airlock_scanner))		//yogs start
+		var/obj/item/airlock_scanner/S = C
+		S.show_access(src, user)					//yogs end
 	else if(istype(C, /obj/item/doorCharge))
 		if(!panel_open || security_level)
 			to_chat(user, "<span class='warning'>The maintenance panel must be open to apply [C]!</span>")
@@ -980,6 +1031,58 @@
 		update_icon()
 	else if(istype(C, /obj/item/brace)) //yogs
 		apply_brace(C, user) //yogs
+	else if(istype(C, /obj/item/umbral_tendrils))
+		if(user.a_intent == INTENT_HELP && !hasPower())
+			if(!density)
+				return
+			if(locked || welded)
+				to_chat(user, "<span class='warning'>Your [C.name] can't force open locked doors without smashing them down [src].</span>")
+				return
+			open(2)
+		var/obj/item/umbral_tendrils/T = C
+		if(!T.darkspawn)
+			return ..()
+		else if(user.a_intent == INTENT_DISARM && density)
+			if(!locked && !welded)
+				if(!T.darkspawn.has_psi(15))
+					to_chat(user, "<span class='warning'>You need at least 15 Psi to force open an airlock!</span>")
+					return
+				user.visible_message("<span class='warning'>[user] starts forcing open [src]!</span>", "<span class='velvet'><b>ueahz</b><br>You begin forcing open [src]...</span>")
+				playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
+				if(!T.twin)
+					if(!do_after(user, 75, target = src))
+						return
+				else
+					if(!do_after(user, 50, target = src))
+						return
+				open(2)
+				if(density && !open(2))
+					to_chat(user, "<span class='warning'>Despite your attempts, [src] refuses to open!</span>")
+				T.darkspawn.use_psi(15)
+			else
+				if(!T.darkspawn.has_psi(30))
+					to_chat(user, "<span class='warning'>You need at least 30 Psi to smash down an airlock!</span>")
+					return
+				user.visible_message("<span class='boldwarning'>[user] starts slamming [T] into [src]!</span>", \
+				"<span class='velvet italics'>You loudly begin smashing down [src].</span>")
+				while(obj_integrity > max_integrity * 0.25)
+					if(T.twin)
+						if(!do_after(user, rand(4, 6), target = src))
+							T.darkspawn.use_psi(30)
+							qdel(T)
+							return
+					else
+						if(!do_after(user, rand(8, 10), target = src))
+							T.darkspawn.use_psi(30)
+							qdel(T)
+							return
+					playsound(src, 'yogstation/sound/magic/pass_smash_door.ogg', 50, TRUE)
+					take_damage(max_integrity / rand(8, 15))
+					to_chat(user, "<span class='velvet bold'>klaj.</span>")
+				ex_act(EXPLODE_DEVASTATE)
+				user.visible_message("<span class='boldwarning'>[user] slams down [src]!</span>", "<span class='velvet bold'>KLAJ.</span>")
+				T.darkspawn.use_psi(30)
+				qdel(T)
 	else
 		return ..()
 

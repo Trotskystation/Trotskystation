@@ -75,23 +75,23 @@
 	. = ..()
 
 /obj/item/stack/examine(mob/user)
-	..()
+	. = ..()
 	if (is_cyborg)
 		if(singular_name)
-			to_chat(user, "There is enough energy for [get_amount()] [singular_name]\s.")
+			. += "There is enough energy for [get_amount()] [singular_name]\s."
 		else
-			to_chat(user, "There is enough energy for [get_amount()].")
+			. += "There is enough energy for [get_amount()]."
 		return
 	if(singular_name)
 		if(get_amount()>1)
-			to_chat(user, "There are [get_amount()] [singular_name]\s in the stack.")
+			. += "There are [get_amount()] [singular_name]\s in the stack."
 		else
-			to_chat(user, "There is [get_amount()] [singular_name] in the stack.")
+			. += "There is [get_amount()] [singular_name] in the stack."
 	else if(get_amount()>1)
-		to_chat(user, "There are [get_amount()] in the stack.")
+		. += "There are [get_amount()] in the stack."
 	else
-		to_chat(user, "There is [get_amount()] in the stack.")
-	to_chat(user, "<span class='notice'>Alt-click to take a custom amount.</span>")
+		. += "There is [get_amount()] in the stack."
+	. += "<span class='notice'>Alt-click to take a custom amount.</span>"
 
 /obj/item/stack/proc/get_amount()
 	if(is_cyborg)
@@ -195,7 +195,7 @@
 			var/turf/T = usr.drop_location()
 			if(!isturf(T))
 				return
-			T.PlaceOnTop(R.result_type)
+			T.PlaceOnTop(R.result_type, flags = CHANGETURF_INHERIT_AIR)
 		else
 			O = new R.result_type(usr.drop_location())
 		if(O)
@@ -355,6 +355,9 @@
 		. = ..()
 
 /obj/item/stack/AltClick(mob/living/user)
+	. = ..()
+	if(isturf(loc)) // to prevent people that are alt clicking a tile to see its content from getting undesidered pop ups
+		return
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
 		return
 	if(is_cyborg)

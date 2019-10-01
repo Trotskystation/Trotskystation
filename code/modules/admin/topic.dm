@@ -954,6 +954,17 @@
 
 		usr.client.cmd_admin_animalize(M)
 
+	else if(href_list["makepacman"])
+		if(!check_rights(R_SPAWN))
+			return
+
+		var/mob/living/carbon/human/H = locate(href_list["makepacman"])
+		if(!istype(H))
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human.")
+			return
+
+		usr.client.cmd_admin_pacmanize(H)
+
 	else if(href_list["adminplayeropts"])
 		var/mob/M = locate(href_list["adminplayeropts"])
 		show_player_panel(M)
@@ -1051,7 +1062,7 @@
 				if(DEAD)
 					status = "<font color='red'><b>Dead</b></font>"
 			health_description = "Status = [status]"
-			health_description += "<BR>Oxy: [L.getOxyLoss()] - Tox: [L.getToxLoss()] - Fire: [L.getFireLoss()] - Brute: [L.getBruteLoss()] - Clone: [L.getCloneLoss()] - Brain: [L.getBrainLoss()] - Stamina: [L.getStaminaLoss()]"
+			health_description += "<BR>Oxy: [L.getOxyLoss()] - Tox: [L.getToxLoss()] - Fire: [L.getFireLoss()] - Brute: [L.getBruteLoss()] - Clone: [L.getCloneLoss()] - Brain: [L.getOrganLoss(ORGAN_SLOT_BRAIN)] - Stamina: [L.getStaminaLoss()]"
 		else
 			health_description = "This mob type has no health to speak of."
 
@@ -1826,6 +1837,20 @@
 					log_query_debug("[usr.key] | [response]")
 		else if(answer == "no")
 			log_query_debug("[usr.key] | Reported no server hang")
+
+	else if(href_list["ctf_toggle"])
+		if(!check_rights(R_ADMIN))
+			return
+		toggle_all_ctf(usr)
+
+	else if(href_list["rebootworld"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/confirm = alert("Are you sure you want to reboot the server?", "Confirm Reboot", "Yes", "No")
+		if(confirm == "No")
+			return
+		if(confirm == "Yes")
+			restart()
 
 	else if(href_list["check_teams"])
 		if(!check_rights(R_ADMIN))

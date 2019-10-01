@@ -16975,6 +16975,7 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "aKj" = (
+/obj/structure/closet/secure_closet/medical2,
 /turf/open/floor/plasteel/white/side{
 	dir = 4
 	},
@@ -16993,6 +16994,11 @@
 	},
 /area/medical/surgery)
 "aKn" = (
+/obj/machinery/camera{
+	c_tag = "Medical - Surgery";
+	dir = 1;
+	network = list("ss13","Medical")
+	},
 /turf/open/floor/plasteel/white/side{
 	dir = 1
 	},
@@ -33684,7 +33690,6 @@
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
 "bqg" = (
-/obj/machinery/computer/camera_advanced/xenobio,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
 "bqh" = (
@@ -46666,12 +46671,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/heads/cmo)
 "bNI" = (
-/obj/structure/closet/secure_closet/medical2,
-/obj/machinery/camera{
-	c_tag = "Medical - Surgery";
-	dir = 1;
-	network = list("ss13","Medical")
-	},
+/obj/machinery/smartfridge/organ,
 /turf/open/floor/plasteel,
 /area/medical/surgery)
 "bNJ" = (
@@ -49102,9 +49102,6 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "bSe" = (
-/obj/structure/chair/comfy/black{
-	dir = 1
-	},
 /turf/open/floor/plasteel/white/side,
 /area/science/xenobiology)
 "bSf" = (
@@ -53341,13 +53338,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"cbz" = (
-/obj/machinery/computer/camera_advanced/xenobio{
-	icon_state = "computer";
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/science/xenobiology)
 "cbA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -73101,7 +73091,7 @@ aAI
 bXK
 aAI
 cfc
-cbz
+bqg
 aAH
 aTp
 cca

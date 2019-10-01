@@ -209,6 +209,7 @@
 	owner.adjustToxLoss(-grace_heal, TRUE, TRUE)
 	owner.adjustOxyLoss(-(grace_heal * 2))
 	owner.adjustCloneLoss(-grace_heal)
+	owner.adjustStaminaLoss(-200) //no stuns allowed sorry
 
 /datum/status_effect/his_grace/on_remove()
 	owner.log_message("lost His Grace's stun immunity", LOG_ATTACK)
@@ -485,7 +486,7 @@
 		else
 			owner.visible_message("[owner]'s soul is absorbed into the rod, relieving the previous snake of its duty.")
 			var/mob/living/simple_animal/hostile/retaliate/poison/snake/healSnake = new(owner.loc)
-			var/list/chems = list(/datum/reagent/medicine/bicaridine, /datum/reagent/medicine/salbutamol, /datum/reagent/medicine/kelotane, /datum/reagent/medicine/antitoxin)
+			var/list/chems = list(/datum/reagent/medicine/bicaridine, /datum/reagent/medicine/perfluorodecalin, /datum/reagent/medicine/kelotane, /datum/reagent/medicine/antitoxin)
 			healSnake.poison_type = pick(chems)
 			healSnake.name = "Asclepius's Snake"
 			healSnake.real_name = "Asclepius's Snake"
@@ -523,7 +524,7 @@
 			itemUser.adjustToxLoss(-1.5, forced = TRUE) //Because Slime People are people too
 			itemUser.adjustOxyLoss(-1.5)
 			itemUser.adjustStaminaLoss(-1.5)
-			itemUser.adjustBrainLoss(-1.5)
+			itemUser.adjustOrganLoss(ORGAN_SLOT_BRAIN, -1.5)
 			itemUser.adjustCloneLoss(-0.5) //Becasue apparently clone damage is the bastion of all health
 		//Heal all those around you, unbiased
 		for(var/mob/living/L in view(7, owner))
@@ -535,7 +536,7 @@
 				L.adjustToxLoss(-3.5, forced = TRUE) //Because Slime People are people too
 				L.adjustOxyLoss(-3.5)
 				L.adjustStaminaLoss(-3.5)
-				L.adjustBrainLoss(-3.5)
+				L.adjustOrganLoss(ORGAN_SLOT_BRAIN, -3.5)
 				L.adjustCloneLoss(-1) //Becasue apparently clone damage is the bastion of all health
 			else if(issilicon(L))
 				L.adjustBruteLoss(-3.5)
@@ -570,7 +571,7 @@
 	alert_type = /obj/screen/alert/status_effect/regenerative_core
 
 /datum/status_effect/regenerative_core/on_apply()
-	ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, "regenerative_core")
+	ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, id)
 	owner.adjustBruteLoss(-25)
 	owner.adjustFireLoss(-25)
 	owner.remove_CC()
@@ -578,7 +579,7 @@
 	return TRUE
 
 /datum/status_effect/regenerative_core/on_remove()
-	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, "regenerative_core")
+	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, id)
 
 /datum/status_effect/antimagic
 	id = "antimagic"
@@ -595,3 +596,54 @@
 /datum/status_effect/antimagic/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_ANTIMAGIC, MAGIC_TRAIT)
 	owner.visible_message("<span class='warning'>[owner]'s dull aura fades away...</span>")
+
+/datum/status_effect/creep //allows darkspawn to move through lights without lightburn damage //yogs start: darkspawn
+	id = "creep"
+	duration = -1
+	alert_type = /obj/screen/alert/status_effect/creep
+	examine_text = "<span class='warning'>SUBJECTPRONOUN is surrounded by velvety, gently-waving black shadows!</span>"
+	var/datum/antagonist/darkspawn/darkspawn
+
+/datum/status_effect/creep/on_creation(mob/living/owner, datum/antagonist/darkspawn)
+	. = ..()
+	if(!.)
+		return
+	src.darkspawn = darkspawn
+
+/datum/status_effect/creep/process()
+	if(!darkspawn)
+		qdel(src)
+		return
+	if(!darkspawn.has_psi(1)) //ticks 5 times per second, 5 Psi lost per second
+		to_chat(owner, "<span class='warning'>Without the Psi to maintain it, your protective aura vanishes!</span>")
+		qdel(src)
+		return
+	darkspawn.use_psi(1)
+
+/obj/screen/alert/status_effect/creep
+	name = "Creep"
+	desc = "You are immune to lightburn. Drains 1 Psi per second."
+	icon = 'yogstation/icons/mob/actions/actions_darkspawn.dmi'
+	icon_state = "creep"
+
+
+/datum/status_effect/time_dilation //used by darkspawn; greatly increases action times etc
+	id = "time_dilation"
+	duration = 600
+	alert_type = /obj/screen/alert/status_effect/time_dilation
+	examine_text = "<span class='warning'>SUBJECTPRONOUN is moving jerkily and unpredictably!</span>"
+
+/datum/status_effect/time_dilation/on_apply()
+	owner.next_move_modifier *= 0.5
+	owner.action_speed_modifier *= 0.5
+	return TRUE
+
+/datum/status_effect/time_dilation/on_remove()
+	owner.next_move_modifier *= 2
+	owner.action_speed_modifier *= 2
+
+/obj/screen/alert/status_effect/time_dilation
+	name = "Time Dilation"
+	desc = "Your actions are twice as fast, and the delay between them is halved."
+	icon = 'yogstation/icons/mob/actions/actions_darkspawn.dmi'
+	icon_state = "time_dilation" //yogs end

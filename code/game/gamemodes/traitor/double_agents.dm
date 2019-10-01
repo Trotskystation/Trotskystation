@@ -13,11 +13,11 @@
 	reroll_friendly = 0
 	traitor_name = "Nanotrasen Internal Affairs Agent"
 	antag_flag = ROLE_INTERNAL_AFFAIRS
+  restricted_jobs = list("AI", "Cyborg")//Yogs -- Silicons can no longer be IAA
 
 	traitors_possible = 10 //hard limit on traitors if scaling is turned off
 	num_modifier = 4 // Four additional traitors
 	antag_datum = /datum/antagonist/traitor/internal_affairs
-	restricted_jobs = list("AI", "Cyborg")//Yogs -- Silicons can no longer be IAA
 
 	announce_text = "There are Nanotrasen Internal Affairs Agents trying to kill each other!\n\
 	<span class='danger'>IAA</span>: Eliminate your targets and protect yourself!\n\

@@ -104,6 +104,7 @@
 /datum/status_effect/incapacitating/stasis/on_creation(mob/living/new_owner, set_duration, updating_canmove)
 	. = ..()
 	update_time_of_death()
+	owner.reagents?.end_metabolization(owner, FALSE)
 
 /datum/status_effect/incapacitating/stasis/tick()
 	update_time_of_death()
@@ -481,7 +482,7 @@
 	var/effect_last_activation = 0
 	var/effect_cooldown = 100
 	var/obj/effect/temp_visual/curse/wasting_effect = new
-	
+
 /datum/status_effect/necropolis_curse/hivemind
 	id = "hivecurse"
 	duration = 600
@@ -677,14 +678,14 @@
 		owner.remove_client_colour(/datum/client_colour/monochrome)
 	to_chat(owner, "<span class='warning'>You snap out of your trance!</span>")
 
-/datum/status_effect/trance/proc/hypnotize(datum/source, message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/datum/status_effect/trance/proc/hypnotize(datum/source, list/hearing_args)
 	if(!owner.can_hear())
 		return
-	if(speaker == owner)
+	if(hearing_args[HEARING_SPEAKER] == owner)
 		return
 	var/mob/living/carbon/C = owner
 	C.cure_trauma_type(/datum/brain_trauma/hypnosis, TRAUMA_RESILIENCE_SURGERY) //clear previous hypnosis
-	addtimer(CALLBACK(C, /mob/living/carbon.proc/gain_trauma, /datum/brain_trauma/hypnosis, TRAUMA_RESILIENCE_SURGERY, raw_message), 10)
+	addtimer(CALLBACK(C, /mob/living/carbon.proc/gain_trauma, /datum/brain_trauma/hypnosis, TRAUMA_RESILIENCE_SURGERY, hearing_args[HEARING_RAW_MESSAGE]), 10)
 	addtimer(CALLBACK(C, /mob/living.proc/Stun, 60, TRUE, TRUE), 15) //Take some time to think about it
 	qdel(src)
 
@@ -789,3 +790,32 @@
 	name = "TO THE STARS AND BEYOND!"
 	desc = "I must go, my people need me!"
 	icon_state = "high"
+
+//Broken Will: Applied by Devour Will, and functions similarly to Kindle. Induces sleep for 30 seconds, going down by 1 second for every point of damage the target takes. //yogs start: darkspawn
+/datum/status_effect/broken_will
+	id = "broken_will"
+	status_type = STATUS_EFFECT_UNIQUE
+	tick_interval = 5
+	duration = 300
+	examine_text = "<span class='deadsay'>SUBJECTPRONOUN is in a deep, deathlike sleep, with no signs of awareness to anything around them.</span>"
+	alert_type = /obj/screen/alert/status_effect/broken_will
+	var/old_health
+
+/datum/status_effect/broken_will/tick()
+	owner.Unconscious(15)
+	if(!old_health)
+		old_health = owner.health
+	var/health_difference = old_health - owner.health
+	if(!health_difference)
+		return
+	owner.visible_message("<span class='warning'>[owner] jerks in their sleep as they're harmed!</span>")
+	to_chat(owner, "<span class='boldannounce'>Something hits you, pulling you towards wakefulness!</span>")
+	health_difference *= 10 //1 point of damage = 1 second = 10 deciseconds
+	duration -= health_difference
+	old_health = owner.health
+
+/obj/screen/alert/status_effect/broken_will
+	name = "Broken Will"
+	desc = "..."
+	icon_state = "broken_will"
+	alerttooltipstyle = "alien" //yogs end

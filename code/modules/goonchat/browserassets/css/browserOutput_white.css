@@ -324,6 +324,7 @@ h1.alert, h2.alert		{color: #000000;}
 .blue                   {color: #0000FF}
 .nicegreen				{color: #14a833;}
 .shadowling				{color: #3b2769;}
+.velvet					{color: #21007F;}
 .cult					{color: #960000;}
 
 .cultitalic				{color: #960000;	font-style: italic;}
@@ -385,7 +386,7 @@ h1.alert, h2.alert		{color: #000000;}
 .bigassimilator			{color: #800080;	font-size: 32px ; font-weight: bold;}
 .alertsyndie			{color: #FF0000;	font-size: 24px ; font-weight: bold;}
 
-.spider					{color: #4d004d;}
+.spider					{color: #4d004d; font-weight: bold; font-size: 24px;}
 
 .interface				{color: #330033;}
 

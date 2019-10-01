@@ -25,6 +25,9 @@
 /obj/structure/spawner/lavaland/legion
 	mob_types = list(/mob/living/simple_animal/hostile/asteroid/hivelord/legion/tendril)
 
+/obj/structure/spawner/lavaland/magmawing
+	mob_types = list(/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/magmawing/tendril)
+
 GLOBAL_LIST_INIT(tendrils, list())
 /obj/structure/spawner/lavaland/Initialize()
 	. = ..()
@@ -46,7 +49,7 @@ GLOBAL_LIST_INIT(tendrils, list())
 	var/last_tendril = TRUE
 	if(GLOB.tendrils.len>1)
 		last_tendril = FALSE
-	
+
 	if(last_tendril && !(flags_1 & ADMIN_SPAWNED_1))
 		if(SSmedals.hub_enabled)
 			for(var/mob/living/L in view(7,src))
@@ -93,5 +96,5 @@ GLOBAL_LIST_INIT(tendrils, list())
 	visible_message("<span class='boldannounce'>The tendril falls inward, the ground around it widening into a yawning chasm!</span>")
 	for(var/turf/T in range(2,src))
 		if(!T.density)
-			T.TerraformTurf(/turf/open/chasm/lavaland, /turf/open/chasm/lavaland)
+			T.TerraformTurf(/turf/open/chasm/lavaland, /turf/open/chasm/lavaland, flags = CHANGETURF_INHERIT_AIR)
 	qdel(src)

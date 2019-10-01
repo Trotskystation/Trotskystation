@@ -5,7 +5,7 @@
 	icon_state = "recharge_floor"                           //        Some people just want to watch the world burn i guess
 
 /turf/open/floor/mech_bay_recharge_floor/break_tile()
-	ScrapeAway()
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/mech_bay_recharge_floor/airless
 	icon_state = "recharge_floor_asteroid"
@@ -45,9 +45,9 @@
 	max_charge = MC * 25
 
 /obj/machinery/mech_bay_recharge_port/examine(mob/user)
-	..()
+	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		to_chat(user, "<span class='notice'>The status display reads: Base recharge rate at <b>[max_charge]J</b> per cycle.<span>")
+		. += "<span class='notice'>The status display reads: Base recharge rate at <b>[max_charge]J</b> per cycle.<span>"
 
 /obj/machinery/mech_bay_recharge_port/process()
 	if(stat & NOPOWER || !recharge_console)

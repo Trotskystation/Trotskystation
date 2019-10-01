@@ -39,13 +39,13 @@
 	if(!proximity)
 		return
 
-	if(reagents.total_volume < 1)
-		to_chat(user, "<span class='warning'>Your mop is dry!</span>")
-		return
-
 	var/turf/T = get_turf(A)
 
-	if(istype(A, /obj/item/reagent_containers/glass/bucket) || istype(A, /obj/structure/janitorialcart))
+	if(istype(A, /obj/item/reagent_containers/glass/bucket) || istype(A, /obj/structure/janitorialcart) || istype(A, /obj/structure/mopbucket))
+		return
+
+	if(reagents.total_volume < 1)
+		to_chat(user, "<span class='warning'>Your mop is dry!</span>")
 		return
 
 	if(T)
@@ -110,8 +110,8 @@
 		reagents.add_reagent(refill_reagent, refill_rate)
 
 /obj/item/mop/advanced/examine(mob/user)
-	..()
-	to_chat(user, "<span class='notice'>The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.</span>")
+	. = ..()
+	. += "<span class='notice'>The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.</span>"
 
 /obj/item/mop/advanced/Destroy()
 	if(refill_enabled)

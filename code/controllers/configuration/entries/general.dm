@@ -75,6 +75,8 @@
 
 /datum/config_entry/flag/log_telecomms	// log telecomms messages
 
+/datum/config_entry/flag/log_ntsl		// log NTSL compilation
+
 /datum/config_entry/flag/log_twitter	// log certain expliotable parrots and other such fun things in a JSON file of twitter valid phrases.
 
 /datum/config_entry/flag/log_world_topic	// log all world.Topic() calls
@@ -90,6 +92,8 @@
 /datum/config_entry/flag/allow_vote_restart	// allow votes to restart
 
 /datum/config_entry/flag/allow_vote_mode	// allow votes to change mode
+
+/datum/config_entry/flag/allow_vote_map	// allow votes to change map
 
 /datum/config_entry/number/vote_delay	// minimum time between voting sessions (deciseconds, 10 minute default)
 	config_entry_value = 6000
@@ -360,6 +364,12 @@
 /datum/config_entry/flag/announce_admin_login
 
 /datum/config_entry/flag/allow_map_voting
+	deprecated_by = /datum/config_entry/flag/preference_map_voting
+
+/datum/config_entry/flag/allow_map_voting/DeprecationUpdate(value)
+	return value
+
+/datum/config_entry/flag/preference_map_voting
 
 /datum/config_entry/number/client_warn_version
 	config_entry_value = null
@@ -476,3 +486,5 @@
 	min_val = 30
 
 /datum/config_entry/flag/reopen_roundstart_suicide_roles_command_report
+
+/datum/config_entry/flag/protect_AI_from_traitor

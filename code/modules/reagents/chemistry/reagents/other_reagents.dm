@@ -29,7 +29,7 @@
 			if(!data || !(data["blood_type"] in get_safe_blood(C.dna.blood_type)))
 				C.reagents.add_reagent(/datum/reagent/toxin, reac_volume * 0.5)
 			else
-				C.blood_volume = min(C.blood_volume + round(reac_volume, 0.1), BLOOD_VOLUME_MAXIMUM)
+				C.blood_volume = min(C.blood_volume + round(reac_volume, 0.1), BLOOD_VOLUME_MAXIMUM(C))
 
 
 /datum/reagent/blood/on_new(list/data)
@@ -184,6 +184,7 @@
 	glass_icon_state  = "glass_clear"
 	glass_name = "glass of holy water"
 	glass_desc = "A glass of holy water."
+	self_consuming = TRUE //divine intervention won't be limited by the lack of a liver
 
 /datum/reagent/water/holywater/on_mob_metabolize(mob/living/L)
 	..()
@@ -285,10 +286,10 @@
 		M.adjustOxyLoss(-2, 0)
 		M.adjustBruteLoss(-2, 0)
 		M.adjustFireLoss(-2, 0)
-		if(ishuman(M) && M.blood_volume < BLOOD_VOLUME_NORMAL)
+		if(ishuman(M) && M.blood_volume < BLOOD_VOLUME_NORMAL(M))
 			M.blood_volume += 3
 	else  // Will deal about 90 damage when 50 units are thrown
-		M.adjustBrainLoss(3, 150)
+		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3, 150)
 		M.adjustToxLoss(2, 0)
 		M.adjustFireLoss(2, 0)
 		M.adjustOxyLoss(2, 0)
@@ -306,7 +307,7 @@
 	M.IgniteMob()			//Only problem with igniting people is currently the commonly availible fire suits make you immune to being on fire
 	M.adjustToxLoss(1, 0)
 	M.adjustFireLoss(1, 0)		//Hence the other damages... ain't I a bastard?
-	M.adjustBrainLoss(5, 150)
+	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 150)
 	holder.remove_reagent(type, 1)
 
 /datum/reagent/medicine/omnizine/godblood
@@ -720,7 +721,7 @@
 		step(M, pick(GLOB.cardinals))
 	if(prob(5))
 		M.emote(pick("twitch","drool","moan"))
-	M.adjustBrainLoss(1)
+	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1)
 	..()
 
 /datum/reagent/sulfur
@@ -824,7 +825,7 @@
 	color = "#C8A5DC" // rgb: 200, 165, 220
 
 /datum/reagent/iron/on_mob_life(mob/living/carbon/C)
-	if(C.blood_volume < BLOOD_VOLUME_NORMAL)
+	if(C.blood_volume < BLOOD_VOLUME_NORMAL(C))
 		C.blood_volume += 0.5
 	..()
 
@@ -970,7 +971,6 @@
 			var/mob/living/carbon/C = M
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
-				H.adjust_hygiene((30 * reac_volume) / (3 + reac_volume))
 				if(H.lip_style)
 					H.lip_style = null
 					H.update_body()
@@ -1037,7 +1037,7 @@
 /datum/reagent/impedrezene/on_mob_life(mob/living/carbon/M)
 	M.jitteriness = max(M.jitteriness-5,0)
 	if(prob(80))
-		M.adjustBrainLoss(2*REM)
+		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2*REM)
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 	if(prob(10))
@@ -1363,7 +1363,7 @@
 /datum/reagent/carpet/reaction_turf(turf/T, reac_volume)
 	if(isplatingturf(T) || istype(T, /turf/open/floor/plasteel))
 		var/turf/open/floor/F = T
-		F.PlaceOnTop(/turf/open/floor/carpet)
+		F.PlaceOnTop(/turf/open/floor/carpet, flags = CHANGETURF_INHERIT_AIR)
 	..()
 
 /datum/reagent/bromine
@@ -1742,3 +1742,11 @@
 /datum/reagent/tranquility/reaction_mob(mob/living/L, method=TOUCH, reac_volume, show_message = 1, touch_protection = 0)
 	if(method==PATCH || method==INGEST || method==INJECT || (method == VAPOR && prob(min(reac_volume,100)*(1 - touch_protection))))
 		L.ForceContractDisease(new /datum/disease/transformation/gondola(), FALSE, TRUE)
+
+
+/datum/reagent/spider_extract
+	name = "Spider Extract"
+	description = "A highly specialized extract coming from the Australicus sector, used to create broodmother spiders."
+	color = "#ED2939"
+	taste_description = "upside down"
+	can_synth = FALSE
