@@ -183,6 +183,10 @@
 
 	return 1
 
+
+/obj/item/melee/baton/ignition_effect(atom/A, mob/user)
+	return "[user] lights [A] with [src], like a badass."
+
 /obj/item/melee/baton/emp_act(severity)
 	. = ..()
 	if (!(. & EMP_PROTECT_SELF))
