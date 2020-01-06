@@ -169,3 +169,9 @@ var/next_promise_id = 0
 	
 /proc/disable_profiling()
 	return call(EXTOOLS, "disable_profiling")() == EXTOOLS_SUCCESS
+	
+/* Altmos - Altoids' atmospherics optimization
+	Greatly improves the performance of LINDA by hooking and TFFIing several aspects of the atmospherics system.
+*/
+/proc/altmos_initialize()
+	return call(EXTOOLS, "altmos_initialize")() == EXTOOLS_SUCCESS
