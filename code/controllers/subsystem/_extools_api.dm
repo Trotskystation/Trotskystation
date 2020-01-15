@@ -1,7 +1,6 @@
 #define EXTOOLS			(world.system_type == MS_WINDOWS ? "byond-extools.dll" : "byond-extools")
 #define EXTOOLS_SUCCESS	"gucci"
 #define EXTOOLS_FAILED	"pain"
-#define GLOBAL_PROC		"magic BS"
 
 /*
 	Core - Provides necessary functionality for other modules.
@@ -175,3 +174,18 @@ var/next_promise_id = 0
 */
 /proc/altmos_initialize()
 	return call(EXTOOLS, "altmos_initialize")() == EXTOOLS_SUCCESS
+
+/* Altmos Helper Procs */
+/proc/safe_contents(turf/T)
+	var/list/newlist = list()
+	for(var/i in T.contents)
+		newlist += i
+	return newlist
+
+/proc/gas_types() // A helper proc for Altmos
+	return subtypesof(/datum/gas)
+
+/proc/add_gas(gas_id,out_list) // Like ADD_GAS, but as a proc that can be called as a helper by altmos
+	var/list/tmp_gaslist = GLOB.gaslist_cache[gas_id]
+	out_list[gas_id] = tmp_gaslist.Copy()
+/* End Altmos Procs */
