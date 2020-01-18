@@ -52,16 +52,6 @@
 	item_state = "lb_suit"
 	item_color = "qm"
 
-/obj/item/clothing/under/rank/cargo/skirt
-	name = "quartermaster's jumpskirt"
-	desc = "It's a jumpskirt worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
-	icon_state = "qm_skirt"
-	item_state = "lb_suit"
-	item_color = "qm_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/cargotech
 	name = "cargo technician's jumpsuit"
 	desc = "Shooooorts! They're comfy and easy to wear!"
@@ -72,16 +62,6 @@
 	mutantrace_variation = MUTANTRACE_VARIATION
 	alt_covers_chest = TRUE
 
-/obj/item/clothing/under/rank/cargotech/skirt
-	name = "cargo technician's jumpskirt"
-	desc = "Skiiiiirts! They're comfy and easy to wear!"
-	icon_state = "cargo_skirt"
-	item_state = "lb_suit"
-	item_color = "cargo_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/chaplain
 	desc = "It's a black jumpsuit, often worn by religious folk."
 	name = "chaplain's jumpsuit"
@@ -90,31 +70,12 @@
 	item_color = "chapblack"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/chaplain/skirt
-	name = "chaplain's jumpskirt"
-	desc = "It's a black jumpskirt, often worn by religious folk."
-	icon_state = "chapblack_skirt"
-	item_state = "bl_suit"
-	item_color = "chapblack_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/chef
 	name = "cook's suit"
 	desc = "A suit which is given only to the most <b>hardcore</b> cooks in space."
 	icon_state = "chef"
 	item_color = "chef"
 	alt_covers_chest = TRUE
-
-/obj/item/clothing/under/rank/chef/skirt
-	name = "cook's skirt"
-	desc = "A skirt which is given only to the most <b>hardcore</b> cooks in space."
-	icon_state = "chef_skirt"
-	item_color = "chef_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/clown
 	name = "clown suit"
@@ -191,16 +152,6 @@
 	item_color = "hop"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/head_of_personnel/skirt
-	name = "head of personnel's jumpskirt"
-	desc = "It's a jumpskirt worn by someone who works in the position of \"Head of Personnel\"."
-	icon_state = "hop_skirt"
-	item_state = "b_suit"
-	item_color = "hop_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/hydroponics
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
 	name = "botanist's jumpsuit"
@@ -209,31 +160,12 @@
 	item_color = "hydroponics"
 	permeability_coefficient = 0.5
 
-/obj/item/clothing/under/rank/hydroponics/skirt
-	name = "botanist's jumpskirt"
-	desc = "It's a jumpskirt designed to protect against minor plant-related hazards."
-	icon_state = "hydroponics_skirt"
-	item_state = "g_suit"
-	item_color = "hydroponics_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/janitor
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
 	name = "janitor's jumpsuit"
 	icon_state = "janitor"
 	item_color = "janitor"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
-
-/obj/item/clothing/under/rank/janitor/skirt
-	name = "janitor's jumpskirt"
-	desc = "It's the official skirt of the station's janitor. It has minor protection from biohazards."
-	icon_state = "janitor_skirt"
-	item_color = "janitor_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/lawyer
 	desc = "Slick threads."
