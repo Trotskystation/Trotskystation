@@ -671,8 +671,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href='?_src_=prefs;preference=donor;task=pda'>[donor_pdas[donor_pda]]</a><BR>"
 				dat += "<b>Purrbation (Humans only)</b> "
 				dat += "<a href='?_src_=prefs;preference=donor;task=purrbation'>[purrbation ? "Yes" : "No"]</a><BR>"
-			else
-				//dat += "<b><a href='http://www.yogstation.net/index.php?do=donate'>Donate here</b>"
 			dat += "</tr></table>"
 		// yogs end
 

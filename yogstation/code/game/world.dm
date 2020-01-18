@@ -42,7 +42,7 @@ GLOBAL_LIST_EMPTY(donators)
 	if (server_name)
 		s += "<b>[server_name]</b> &#8212; "
 	
-	s += "<b>[station_name()]] - New Players Welcome!</b><br>"; // The station & server name line
+	s += "<b>[station_name()]] - New Players Welcome!</b><br>" // The station & server name line
 	s += "(<a href=\"https://discord.gg/D2mbCHE\">Discord</a>)<br>" // The Forum & Discord links line
 	s += "<br><i>[pick(world.file2list("yogstation/strings/taglines.txt"))]</i><br>"
 	
