@@ -69,34 +69,6 @@
 	permeability_coefficient = 0.5
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
-/obj/item/clothing/under/rank/scientist/skirt
-	name = "scientist's jumpskirt"
-	desc = "It's made of a special fiber that provides minor protection against explosives. It has markings that denote the wearer as a scientist."
-	icon_state = "toxinswhite_skirt"
-	item_state = "w_suit"
-	item_color = "toxinswhite_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
-/obj/item/clothing/under/rank/chemist
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a chemist rank stripe on it."
-	name = "chemist's jumpsuit"
-	icon_state = "chemistry"
-	item_state = "w_suit"
-	item_color = "chemistrywhite"
-	permeability_coefficient = 0.5
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 65)
-
-/obj/item/clothing/under/rank/chemist/skirt
-	name = "chemist's jumpskirt"
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a chemist rank stripe on it."
-	icon_state = "chemistrywhite_skirt"
-	item_state = "w_suit"
-	item_color = "chemistrywhite_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /*
  * Medical
@@ -110,15 +82,14 @@
 	permeability_coefficient = 0.5
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 
-/obj/item/clothing/under/rank/chief_medical_officer/skirt
-	name = "chief medical officer's jumpskirt"
-	desc = "It's a jumpskirt worn by those with the experience to be \"Chief Medical Officer\". It provides minor biological protection."
-	icon_state = "cmo_skirt"
+/obj/item/clothing/under/rank/chemist
+	desc = "It's made of a special fiber that gives special protection against biohazards. It has a chemist rank stripe on it."
+	name = "chemist's jumpsuit"
+	icon_state = "chemistry"
 	item_state = "w_suit"
-	item_color = "cmo_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
+	item_color = "chemistrywhite"
+	permeability_coefficient = 0.5
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 65)
 
 /obj/item/clothing/under/rank/geneticist
 	desc = "It's made of a special fiber that gives special protection against biohazards. It has a genetics rank stripe on it."
@@ -129,16 +100,6 @@
 	permeability_coefficient = 0.5
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 
-/obj/item/clothing/under/rank/geneticist/skirt
-	name = "geneticist's jumpskirt"
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a genetics rank stripe on it."
-	icon_state = "geneticswhite_skirt"
-	item_state = "w_suit"
-	item_color = "geneticswhite_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/virologist
 	desc = "It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it."
 	name = "virologist's jumpsuit"
@@ -147,16 +108,6 @@
 	item_color = "virologywhite"
 	permeability_coefficient = 0.5
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
-
-/obj/item/clothing/under/rank/virologist/skirt
-	name = "virologist's jumpskirt"
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it."
-	icon_state = "virologywhite_skirt"
-	item_state = "w_suit"
-	item_color = "virologywhite_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/nursesuit
 	desc = "It's a jumpsuit commonly worn by nursing staff in the medical department."
@@ -199,13 +150,3 @@
 	icon_state = "scrubspurple"
 	item_color = "scrubspurple"
 	can_adjust = FALSE
-
-/obj/item/clothing/under/rank/medical/skirt
-	name = "medical doctor's jumpskirt"
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel."
-	icon_state = "medical_skirt"
-	item_state = "w_suit"
-	item_color = "medical_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
