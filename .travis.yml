@@ -28,6 +28,22 @@ matrix:
         - tools/travis/check_grep.sh
         - ~/dreamchecker
 
+    - name: "Compile All Maps"
+      addons:
+        apt:
+          packages:
+            - libstdc++6:i386
+      cache:
+        directories:
+          - $HOME/BYOND
+      install:
+        - tools/travis/install_byond.sh
+        - source $HOME/BYOND/byond/bin/byondsetup
+      before_script:
+        - tools/travis/template_dm_generator.py
+      script:
+        - tools/travis/dm.sh -DTRAVISBUILDING -DTRAVISTESTING -DALL_MAPS yogstation.dme
+
     - name: "Compile and Run Tests"
       addons:
         mariadb: '10.2'
