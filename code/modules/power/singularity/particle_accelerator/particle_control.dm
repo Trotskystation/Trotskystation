@@ -171,7 +171,7 @@
 	//start-trot
 	T = get_step(T,rdir)
 	if(!check_part(T, /obj/structure/particle_accelerator/fuel_chamber))
-				error_message = "Unable to find any parts!"
+		error_message = "Unable to find the Fuel Chamber!"
 		return FALSE
 	T = get_step(T,odir)
 	if(!check_part(T, /obj/structure/particle_accelerator/end_cap))
