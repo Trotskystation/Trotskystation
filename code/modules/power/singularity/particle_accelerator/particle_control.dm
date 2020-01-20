@@ -17,6 +17,7 @@
 	var/active = FALSE
 	var/strength = 0
 	var/powered = FALSE
+	var/error_message //Trot - The error to display when assembly does not work out
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 /obj/machinery/particle_accelerator/control_box/Initialize()
@@ -167,27 +168,34 @@
 	setDir(F.dir)
 	connected_parts.Cut()
 
+	//start-trot
 	T = get_step(T,rdir)
 	if(!check_part(T, /obj/structure/particle_accelerator/fuel_chamber))
+		error_message = "Unable to find the Fuel Chamber!"
 		return FALSE
 	T = get_step(T,odir)
 	if(!check_part(T, /obj/structure/particle_accelerator/end_cap))
+		error_message = "Unable to find the End Cap!"
 		return FALSE
 	T = get_step(T,dir)
 	T = get_step(T,dir)
 	if(!check_part(T, /obj/structure/particle_accelerator/power_box))
+		error_message = "Unable to find the Power Box!"
 		return FALSE
 	T = get_step(T,dir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/center))
+		error_message = "Unable to find the Central Emitter!"
 		return FALSE
 	T = get_step(T,ldir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/left))
+		error_message = "Unable to find the Leftside Emitter!"
 		return FALSE
 	T = get_step(T,rdir)
 	T = get_step(T,rdir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/right))
+		error_message = "Unable to find the Rightside Emitter!"
 		return FALSE
-
+	//end-trot
 	assembled = TRUE
 	critical_machine = TRUE	//Only counts if the PA is actually assembled.
 	return TRUE
@@ -243,7 +251,7 @@
 	dat += "<A href='?src=[REF(src)];close=1'>Close</A><BR><BR>"
 	dat += "<h3>Status</h3>"
 	if(!assembled)
-		dat += "Unable to detect all parts!<BR>"
+		dat += "[error_message]<BR>" //trot
 		dat += "<A href='?src=[REF(src)];scan=1'>Run Scan</A><BR><BR>"
 	else
 		dat += "All parts in place.<BR><BR>"
