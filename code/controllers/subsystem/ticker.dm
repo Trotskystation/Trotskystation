@@ -657,12 +657,10 @@ SUBSYSTEM_DEF(ticker)
 	save_admin_data()
 	update_everything_flag_in_db()
 	if(!round_end_sound)
-		round_end_sound = get_roundend_sound()
-
-		)
-
+		round_end_sound = get_roundend_sound() //Trot start -- Rejiggered roundend sounds to be part of the config instead
 	SEND_SOUND(world, sound(round_end_sound))
 	text2file(login_music, "data/last_round_lobby_music.txt")
 
 /datum/controller/subsystem/ticker/proc/get_roundend_sound()
 	return file(pick(world.file2list("config/roundend_sounds.txt")))// Gets all the lines of paths in roundend_sounds, picks one of them, and gets their associated file.
+//trot end
