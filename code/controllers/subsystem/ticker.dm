@@ -657,21 +657,12 @@ SUBSYSTEM_DEF(ticker)
 	save_admin_data()
 	update_everything_flag_in_db()
 	if(!round_end_sound)
-		round_end_sound = pick(\
-		'sound/roundend/newroundsexy.ogg',
-		'sound/roundend/apcdestroyed.ogg',
-		'sound/roundend/bangindonk.ogg',
-		'sound/roundend/leavingtg.ogg',
-		'sound/roundend/its_only_game.ogg',
-		'sound/roundend/yeehaw.ogg',
-		'yogstation/sound/roundend/aww_shit.ogg', // yogs -- adds "Aww shit, here we go again"
-		'yogstation/sound/roundend/ass_blast_usa.ogg', // yogs -- adds "Ass Blast USA" vox
-		'sound/roundend/itshappening.ogg',
-		'yogstation/sound/roundend/bamboozeled.ogg',// yogs -- adds "We've been tricked, we've been backstabed, and we've quite possibly been bamboozeled.
-		'sound/roundend/disappointed.ogg',
-		'sound/roundend/scrunglartiy.ogg',
-		'sound/roundend/windowsxp.ogg'\
+		round_end_sound = get_roundend_sound()
+
 		)
 
 	SEND_SOUND(world, sound(round_end_sound))
 	text2file(login_music, "data/last_round_lobby_music.txt")
+
+/datum/controller/subsystem/ticker/proc/get_roundend_sound()
+	return file(pick(world.file2list("config/roundend_sounds.txt")))// Gets all the lines of paths in roundend_sounds, picks one of them, and gets their associated file.
