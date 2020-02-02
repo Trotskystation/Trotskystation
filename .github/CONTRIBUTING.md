@@ -6,31 +6,35 @@ See [this page](http://tgstation13.org/wiki/Reporting_Issues) for a guide and fo
 
 ## Introduction
 
-Hello and welcome to Yogstation's contributing page. You are here because you are curious or interested in contributing - thank you! Everyone is free to contribute to this project as long as they follow the simple guidelines and specifications below; at yogstation, we strive to maintain code stability and maintainability, and to do that, we need all pull requests to hold up to those specifications. It's in everyone's best interests - including yours! - if the same bug doesn't have to be fixed twice because of duplicated code.
+Hello and welcome to Trotskystation's contributing page. You are here because you are curious or interested in contributing - thank you! Everyone is free to contribute to this project as long as they follow the simple guidelines and specifications below; at Trotskystation, we strive to maintain code stability and maintainability, and to do that, we need all pull requests to hold up to those specifications. It's in everyone's best interests - including yours! - if the same bug doesn't have to be fixed twice because of duplicated code.
 
 First things first, we want to make it clear how you can contribute (if you've never contributed before), as well as the kinds of powers the team has over your additions, to avoid any unpleasant surprises if your pull request is closed for a reason you didn't foresee.
 
 ## Getting Started
 
-yogstation doesn't have a list of goals and features to add; we instead allow freedom for contributors to suggest and create their ideas for the game. That doesn't mean we aren't determined to squash bugs, which unfortunately pop up a lot due to the deep complexity of the game. Here are some useful starting guides, if you want to contribute or if you want to know what challenges you can tackle with zero knowledge about the game's code structure.
+Trotskystation doesn't have a list of goals and features to add; we instead allow freedom for contributors to suggest and create their ideas for the game. That doesn't mean we aren't determined to squash bugs, which unfortunately pop up a lot due to the deep complexity of the game. Here are some useful starting guides, if you want to contribute or if you want to know what challenges you can tackle with zero knowledge about the game's code structure.
 
 If you want to contribute the first thing you'll need to do is [set up Git](https://wiki.yogstation.net/wiki/Setting_up_git) so you can download the source code.
 
-We have a [list of guides on the wiki](https://wiki.yogstation.net/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to yogstation with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
+We have a [list of guides on the wiki](https://wiki.yogstation.net/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to Trotskystation with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
 
-You can of course, as always, ask for help in #coder-public on the [discord](https://discord.gg/0keg6hQH05Ha8OfO). We're just here to have fun and help out, so please don't expect professional support.
+You can of course, as always, ask for help in #dev-public on the [discord](https://discord.gg/cbp5E3j). We're just here to have fun and help out, so please don't assume professional support. Your Mileage May Vary.
 
 ## Meet the Team
 
-**Headcoder**
+**Head Developer**
 
-The Headcoder is responsible for controlling, adding, and removing maintainers from the project. In addition to filling the role of a normal maintainer, they have sole authority on who becomes a maintainer, as well as who remains a maintainer and who does not.
+The Head Developer is responsible for controlling, adding, and removing maintainers from the project. In addition to filling the role of a normal maintainer, they have sole authority on who becomes a maintainer, as well as who remains a maintainer and who does not.
 
 **Maintainers**
 
 Maintainers are quality control. If a proposed pull request doesn't meet the following specifications, they can request you to change it, or simply just close the pull request. Maintainers are required to give a reason for closing the pull request.
 
 Maintainers can revert your changes if they feel they are not worth maintaining or if they did not live up to the quality specifications.
+
+**Secretary of Development**
+
+This person allows you some capacity to seek appeal if you believe the Head Developer is wrong on something. They may start votes and referendums to overrule decisions you may disagree with. Contact them if all else fails.
 
 ## Specifications
 
@@ -120,12 +124,12 @@ You must use tabs to indent your code, NOT SPACES.
 (You may use spaces to align something, but you should tab to the block level first, then add the remaining spaces)
 
 ### No hacky code
-Hacky code, such as adding specific checks, is highly discouraged and only allowed when there is ***no*** other option. (Protip: 'I couldn't immediately think of a proper way so thus there must be no other option' is not gonna cut it here! If you can't think of anything else, say that outright and admit that you need help with it. Maintainers exist for exactly that reason.)
+**Hacky code**, such as adding specific checks, is highly discouraged and only allowed when there is ***no*** other option. (Protip: 'I couldn't immediately think of a proper way so thus there must be no other option' is not gonna cut it here! If you can't think of anything else, say that outright and admit that you need help with it. Maintainers exist for exactly that reason.)
 
 You can avoid hacky code by using object-oriented methodologies, such as overriding a function (called "procs" in DM) or sectioning code into functions and then overriding them as required.
 
 ### No duplicated code
-Copying code from one place to another may be suitable for small, short-time projects, but yogstation is a long-term project and highly discourages this.
+Copying code from one place to another may be suitable for small, short-time projects, but Trotskystation is a long-term project and highly discourages this.
 
 Instead you can use object orientation, or simply placing repeated code in a function, to obey this specification easily.
 
@@ -387,5 +391,11 @@ If you are porting features/tools from other codebases, you must give them credi
 
 Regarding sprites & sounds, you must credit the artist and possibly the codebase. All yogstation assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated. However if you are porting assets from GoonStation or usually any assets under the [Creative Commons 3.0 BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/3.0/) are to go into the 'goon' folder of the yogstation codebase.
 
-## A word on Git
-All .dmm .dm .md .txt .html are required to end with CRLF(DOS/WINDOWS) line endings,git will enforce said line endings automatically. Other file types have non enforced line endings.
+## Line-Endings
+Most common filetypes (dmm, dm, md,  txt, html) are required to end with CRLF(DOS/WINDOWS) line endings. Git will enforce said line endings automatically. Other file types have non enforced line endings.
+
+## Banned content
+Do not add any of the following in a Pull Request or risk getting the PR closed:
+* National Socialist Party of Germany content, National Socialist Party of Germany related content, or National Socialist Party of Germany references
+
+Just because something isn't on this list or guide doesn't mean that it's acceptable. Use common sense above all else.
