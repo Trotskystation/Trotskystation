@@ -188,7 +188,7 @@
 		return FALSE
 	T = get_step(T,ldir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/left))
-		error_message = "Unable to find the Leftside Emitter!"
+		error_message = "Unable to find the left-side emitter!"
 		return FALSE
 	T = get_step(T,rdir)
 	T = get_step(T,rdir)
