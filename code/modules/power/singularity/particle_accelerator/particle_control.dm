@@ -180,7 +180,7 @@
 	T = get_step(T,dir)
 	T = get_step(T,dir)
 	if(!check_part(T, /obj/structure/particle_accelerator/power_box))
-		error_message = "Unable to find the Power Box!"
+		error_message = "Unable to find the power box!"
 		return FALSE
 	T = get_step(T,dir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/center))
