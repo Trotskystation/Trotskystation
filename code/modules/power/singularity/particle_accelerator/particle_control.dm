@@ -184,7 +184,7 @@
 		return FALSE
 	T = get_step(T,dir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/center))
-		error_message = "Unable to find the Central Emitter!"
+		error_message = "Unable to find the central emitter!"
 		return FALSE
 	T = get_step(T,ldir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/left))
