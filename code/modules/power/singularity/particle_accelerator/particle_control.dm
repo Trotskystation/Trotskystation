@@ -193,7 +193,7 @@
 	T = get_step(T,rdir)
 	T = get_step(T,rdir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/right))
-		error_message = "Unable to find the Rightside Emitter!"
+		error_message = "Unable to find the right-side emitter!"
 		return FALSE
 	//end-trot
 	assembled = TRUE
