@@ -175,7 +175,7 @@
 		return FALSE
 	T = get_step(T,odir)
 	if(!check_part(T, /obj/structure/particle_accelerator/end_cap))
-		error_message = "Unable to find the End Cap!"
+		error_message = "Unable to find the end cap!"
 		return FALSE
 	T = get_step(T,dir)
 	T = get_step(T,dir)
