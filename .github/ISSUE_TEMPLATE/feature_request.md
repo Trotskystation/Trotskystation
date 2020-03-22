@@ -4,7 +4,7 @@ about: Suggest an idea for this project but dont, make a suggestion on the forum
 
 ---
 
-# Feature requests are not handled in the repository. The best place to discuss these ideas would be on the Yogstation13 forums here: https://forums.yogstation.net/index.php?forums/feature-requests.221/
+# Feature requests are not handled in the repository. The best place to discuss these ideas would be on the Trotskystation forums here: www.trotskystation.org
 
 ```
 *************************************************************************************
