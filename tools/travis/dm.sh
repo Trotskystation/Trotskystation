@@ -66,7 +66,8 @@ then
 	retval=$?
 	if ! grep '\- 0 errors, 0 warnings' result.log
 	then
-		retval=1 #hard fail, due to warnings or errors
+		echo "Hard fail, due to warnings or errors"
+		exit 1
 	fi
 else
 	if hash DreamMaker 2>/dev/null
@@ -75,7 +76,8 @@ else
 		retval=$?
 		if ! grep '\- 0 errors, 0 warnings' result.log
 		then
-			retval=1 #hard fail, due to warnings or errors
+			echo "Hard fail, due to warnings or errors"
+			exit 1
 		fi
 	else
 		echo "Couldn't find the DreamMaker executable, aborting."
