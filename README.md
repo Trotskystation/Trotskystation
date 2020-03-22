@@ -3,13 +3,13 @@
 [![Build Status](https://travis-ci.org/Trotskystation/Trotskystation.png)](https://travis-ci.org/Trotskystation/Trotskystation)  
 [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-[**Website**](https://yogstation.net)
+[**Website**](https://www.trotskystation.org)
 
-[**Code**](https://github.com/yogstation13/yogstation)
+[**Code**](https://github.com/Trotskystation/Trotskystation)
 
 [**Wiki**](https://wiki.yogstation.net)
 
-[**Discord**](https://discord.gg/0keg6hQH05Ha8OfO)
+[**Discord**](https://discord.gg/D2mbCHE)
 
  
 ## DOWNLOADING
@@ -20,7 +20,7 @@ Option 1:
 Follow this: https://wiki.yogstation.net/wiki/Setting_up_git
 
 Option 2: Download the source code as a zip by clicking the ZIP button in the
-code tab of https://github.com/yogstation13/Yogstation-TG
+code tab of https://github.com/Trotskystation/Trotskystation
 (note: this will use a lot of bandwidth if you wish to update and is a lot of
 hassle if you want to make any changes at all, so it's not recommended.)
 
@@ -94,7 +94,7 @@ https://github.com/tgstation/tgstation-server
 
 ## MAPS
 
-Yogstation currently comes equipped with five maps.
+Trotskystation currently comes equipped with five maps.
 
 * [BoxStation (default)](https://wiki.yogstation.net/wiki/Maps#Boxstation_.28YogBox.29)
 * [MetaStation](https://wiki.yogstation.net/wiki/Maps#MetaStation_.28YogsMeta.29)
@@ -113,7 +113,7 @@ Anytime you want to make changes to a map it's imperative you use the [Map Mergi
 
 ## AWAY MISSIONS
 
-Yogstation supports loading away missions however they are disabled by default.
+Trotskystation supports loading away missions however they are disabled by default.
 
 Map files for away missions are located in the _maps/RandomZLevels directory. Each away mission includes it's own code definitions located in /code/modules/awaymissions/mission_code. These files must be included and compiled with the server beforehand otherwise the server will crash upon trying to load away missions that lack their code.
 
