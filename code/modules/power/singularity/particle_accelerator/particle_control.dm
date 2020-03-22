@@ -17,6 +17,7 @@
 	var/active = FALSE
 	var/strength = 0
 	var/powered = FALSE
+	var/error_message //Trot - The error to display when assembly does not work out
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 /obj/machinery/particle_accelerator/control_box/Initialize()
@@ -167,27 +168,34 @@
 	setDir(F.dir)
 	connected_parts.Cut()
 
+	//start-trot
 	T = get_step(T,rdir)
 	if(!check_part(T, /obj/structure/particle_accelerator/fuel_chamber))
+		error_message = "Unable to find any parts!" // Described as such since scanning implicitly blanks the known parts up above, and this is a sequential returney thing, so not finding the first part means none are known now
 		return FALSE
 	T = get_step(T,odir)
 	if(!check_part(T, /obj/structure/particle_accelerator/end_cap))
+		error_message = "Unable to find the end cap!"
 		return FALSE
 	T = get_step(T,dir)
 	T = get_step(T,dir)
 	if(!check_part(T, /obj/structure/particle_accelerator/power_box))
+		error_message = "Unable to find the power box!"
 		return FALSE
 	T = get_step(T,dir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/center))
+		error_message = "Unable to find the central emitter!"
 		return FALSE
 	T = get_step(T,ldir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/left))
+		error_message = "Unable to find the left-side emitter!"
 		return FALSE
 	T = get_step(T,rdir)
 	T = get_step(T,rdir)
 	if(!check_part(T, /obj/structure/particle_accelerator/particle_emitter/right))
+		error_message = "Unable to find the right-side emitter!"
 		return FALSE
-
+	//end-trot
 	assembled = TRUE
 	critical_machine = TRUE	//Only counts if the PA is actually assembled.
 	return TRUE
@@ -243,7 +251,7 @@
 	dat += "<A href='?src=[REF(src)];close=1'>Close</A><BR><BR>"
 	dat += "<h3>Status</h3>"
 	if(!assembled)
-		dat += "Unable to detect all parts!<BR>"
+		dat += "[error_message]<BR>" //trot
 		dat += "<A href='?src=[REF(src)];scan=1'>Run Scan</A><BR><BR>"
 	else
 		dat += "All parts in place.<BR><BR>"
