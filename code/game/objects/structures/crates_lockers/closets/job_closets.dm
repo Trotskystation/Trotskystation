@@ -324,4 +324,3 @@
 	new /obj/item/clothing/suit/hooded/wintercoat/engineering/tcomms(src)
 	new /obj/item/clothing/under/yogs/rank/signal_tech(src)
 	new /obj/item/clothing/shoes/workboots(src)
-	new /obj/item/clothing/under/yogs/rank/signal_tech/skirt(src)
