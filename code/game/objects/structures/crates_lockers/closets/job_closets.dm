@@ -105,8 +105,8 @@
 	new /obj/item/clothing/head/nun_hood(src)
 	new /obj/item/clothing/suit/chaplainsuit/holidaypriest(src)
 	new /obj/item/storage/backpack/cultpack(src)
-	new /obj/item/storage/fancy/candle_box(src)
-	new /obj/item/storage/fancy/candle_box(src)
+	new /obj/item/storage/box/fancy/candle_box(src)
+	new /obj/item/storage/box/fancy/candle_box(src)
 	return
 
 /obj/structure/closet/wardrobe/red
@@ -324,3 +324,4 @@
 	new /obj/item/clothing/suit/hooded/wintercoat/engineering/tcomms(src)
 	new /obj/item/clothing/under/yogs/rank/signal_tech(src)
 	new /obj/item/clothing/shoes/workboots(src)
+	new /obj/item/clothing/under/yogs/rank/signal_tech/skirt(src)
