@@ -1,20 +1,40 @@
 ---
 name: Bug report
-about: Create a report to help reproduce and fix the issue
+about: Create a report to help us fix the issue
+
 ---
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may not be viewable -->
-## Round ID:
+<!-- Please follow the template below -->
 
-<!--- **INCLUDE THE ROUND ID**
-If you discovered this issue from playing tgstation hosted servers:
-[Round ID]: # (It can be found in the Status panel or retrieved from https://atlantaned.space/statbus/round.php ! The round id let's us look up valuable information and logs for the round the bug happened.)-->
+# Describe the bug
 
-## Testmerges:
+<!-- A clear and concise description of what the bug is. -->
 
-<!-- If you're certain the issue is to be caused by a test merge [OOC tab -> Show Server Revision], report it in the pull request's comment section rather than on the tracker(If you're unsure you can refer to the issue number by prefixing said number with #. The issue number can be found beside the title after submitting it to the tracker).If no testmerges are active, feel free to remove this section. -->
+# Round ID
 
-## Reproduction:
+<!-- What was the round ID when the bug occurred? -->
 
-<!-- Explain your issue in detail, including the steps to reproduce it. Issues without proper reproduction steps or explanation are open to being ignored/closed by maintainers.-->
+# Steps To Reproduce
 
-<!-- **For Admins:** Oddities induced by var-edits and other admin tools are not necessarily bugs. Verify that your issues occur under regular circumstances before reporting them. -->
+<!-- Steps to reproduce the behavior:
+1. Have the RCD in your inventory.
+2. Try to switch the RCD mode.
+3. Nothing happens. -->
+
+
+# Expected behavior
+
+<!-- A clear and concise description of what you expected to happen.
+Ideally also describe *why* you expect it to happen. -->
+
+
+# Screenshots
+
+<!-- **If applicable**, add screenshots to help explain your problem. -->
+
+# Version
+
+<!-- If possible, please tell us the server revision the bug occurred on. -->
+
+# Additional context
+
+<!-- Add any other context about the problem here. -->
