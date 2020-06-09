@@ -74,7 +74,8 @@
 					/obj/item/clothing/shoes/sneakers/white = 4,
 					/obj/item/clothing/head/soft/emt = 4,
 					/obj/item/clothing/suit/apron/surgical = 4,
-					/obj/item/clothing/mask/surgical = 4)
+					/obj/item/clothing/mask/surgical = 4,
+					/obj/item/clothing/accessory/armband/medblue = 2)
 	refill_canister = /obj/item/vending_refill/wardrobe/medi_wardrobe
 	payment_department = ACCOUNT_MED
 /obj/item/vending_refill/wardrobe/medi_wardrobe
@@ -153,7 +154,8 @@
 					/obj/item/clothing/shoes/sneakers/black = 3,
 					/obj/item/clothing/gloves/fingerless = 3,
 					/obj/item/clothing/head/soft = 3,
-					/obj/item/radio/headset/headset_cargo = 3)
+					/obj/item/radio/headset/headset_cargo = 3,
+					/obj/item/clothing/accessory/armband/cargo = 2)
 	premium = list(/obj/item/clothing/under/rank/miner = 3)
 	refill_canister = /obj/item/vending_refill/wardrobe/cargo_wardrobe
 	payment_department = ACCOUNT_CAR
@@ -198,7 +200,8 @@
 					/obj/item/clothing/suit/toggle/labcoat/science = 3,
 					/obj/item/clothing/shoes/sneakers/white = 3,
 					/obj/item/radio/headset/headset_sci = 3,
-					/obj/item/clothing/mask/gas = 3)
+					/obj/item/clothing/mask/gas = 3,
+					/obj/item/clothing/accessory/armband/science = 2)
 	refill_canister = /obj/item/vending_refill/wardrobe/science_wardrobe
 	payment_department = ACCOUNT_SCI
 /obj/item/vending_refill/wardrobe/science_wardrobe
@@ -244,7 +247,8 @@
 					/obj/item/clothing/under/yogs/colony = 1,
 					/obj/item/clothing/glasses/regular = 2,
 					/obj/item/clothing/glasses/regular/jamjar = 1,
-					/obj/item/storage/bag/books = 1)
+					/obj/item/storage/bag/books = 1,
+					/obj/item/clothing/accessory/armband/service = 1)
 	refill_canister = /obj/item/vending_refill/wardrobe/curator_wardrobe
 	payment_department = ACCOUNT_CIV
 /obj/item/vending_refill/wardrobe/curator_wardrobe
@@ -275,7 +279,8 @@
 					/obj/item/clothing/suit/armor/vest/alt = 1,
 					/obj/item/circuitboard/machine/dish_drive = 1,
 					/obj/item/clothing/glasses/sunglasses/reagent = 1,
-					/obj/item/storage/belt/bandolier = 1)
+					/obj/item/storage/belt/bandolier = 1,
+					/obj/item/clothing/accessory/armband/service = 1)
 	premium = list(/obj/item/storage/box/dishdrive = 1)
 	refill_canister = /obj/item/vending_refill/wardrobe/bar_wardrobe
 	payment_department = ACCOUNT_SRV
@@ -299,7 +304,8 @@
 					/obj/item/clothing/under/rank/chef = 1,
 					/obj/item/clothing/head/chefhat = 1,
 					/obj/item/reagent_containers/glass/rag = 1,
-					/obj/item/clothing/suit/hooded/wintercoat = 2)
+					/obj/item/clothing/suit/hooded/wintercoat = 2,
+					/obj/item/clothing/accessory/armband/service = 1)
 	refill_canister = /obj/item/vending_refill/wardrobe/chef_wardrobe
 	payment_department = ACCOUNT_SRV
 /obj/item/vending_refill/wardrobe/chef_wardrobe
@@ -328,7 +334,8 @@
 					/obj/item/storage/bag/trash = 2,
 					/obj/item/clothing/shoes/galoshes = 2,
 					/obj/item/watertank/janitor = 2,
-					/obj/item/storage/belt/janitor = 2)
+					/obj/item/storage/belt/janitor = 2,
+					/obj/item/clothing/accessory/armband/service = 1)
 	refill_canister = /obj/item/vending_refill/wardrobe/jani_wardrobe
 	payment_department = ACCOUNT_SRV
 /obj/item/vending_refill/wardrobe/jani_wardrobe
@@ -413,7 +420,7 @@
 					/obj/item/clothing/suit/toggle/labcoat/chemist = 2,
 					/obj/item/storage/backpack/chemistry = 2,
 					/obj/item/storage/backpack/satchel/chem = 2,
-					/obj/item/storage/bag/chemistry = 2)
+					/obj/item/storage/bag/chemistry = 4)
 	refill_canister = /obj/item/vending_refill/wardrobe/chem_wardrobe
 	payment_department = ACCOUNT_MED
 /obj/item/vending_refill/wardrobe/chem_wardrobe
