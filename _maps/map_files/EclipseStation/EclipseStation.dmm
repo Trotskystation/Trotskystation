@@ -47252,7 +47252,6 @@
 /area/engine/atmos)
 "bQV" = (
 /obj/structure/rack,
-/obj/item/clothing/under/yogs/rank/clerk/skirt,
 /turf/open/floor/plasteel,
 /area/clerk)
 "bQW" = (

@@ -16,16 +16,6 @@
 	item_color = "purplebartender"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/bartender/skirt
-	name = "bartender's skirt"
-	desc = "It looks like it could use some more flair."
-	icon_state = "barman_skirt"
-	item_state = "bar_suit"
-	item_color = "barman_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/captain //Alright, technically not a 'civilian' but its better then giving a .dm file for a single define.
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
 	name = "captain's jumpsuit"
@@ -34,16 +24,6 @@
 	item_color = "captain"
 	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
-
-/obj/item/clothing/under/rank/captain/skirt
-	name = "captain's jumpskirt"
-	desc = "It's a blue jumpskirt with some gold markings denoting the rank of \"Captain\"."
-	icon_state = "captain_skirt"
-	item_state = "b_suit"
-	item_color = "captain_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/cargo
 	name = "quartermaster's jumpsuit"
@@ -177,13 +157,6 @@
 	item_state = "lawyer_black"
 	item_color = "lawyer_black"
 
-/obj/item/clothing/under/lawyer/black/skirt
-	name = "Lawyer black suitskirt"
-	icon_state = "lawyer_black_skirt"
-	item_state = "lawyer_black"
-	item_color = "lawyer_black_skirt"
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/lawyer/female
 	icon_state = "black_suit_fem"
 	item_state = "black_suit_fem"
@@ -194,24 +167,10 @@
 	item_state = "lawyer_red"
 	item_color = "lawyer_red"
 
-/obj/item/clothing/under/lawyer/red/skirt
-	name = "Lawyer red suitskirt"
-	icon_state = "lawyer_red_skirt"
-	item_state = "lawyer_red"
-	item_color = "lawyer_red_skirt"
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/lawyer/blue
 	icon_state = "lawyer_blue"
 	item_state = "lawyer_blue"
 	item_color = "lawyer_blue"
-
-/obj/item/clothing/under/lawyer/blue/skirt
-	name = "Lawyer blue suitskirt"
-	icon_state = "lawyer_blue_skirt"
-	item_state = "lawyer_blue"
-	item_color = "lawyer_blue_skirt"
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/lawyer/bluesuit
 	name = "blue suit"
@@ -222,16 +181,6 @@
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 
-/obj/item/clothing/under/lawyer/bluesuit/skirt
-	name = "blue suitskirt"
-	desc = "A classy suitskirt and tie."
-	icon_state = "bluesuit_skirt"
-	item_state = "bluesuit"
-	item_color = "bluesuit_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/lawyer/purpsuit
 	name = "purple suit"
 	icon_state = "lawyer_purp"
@@ -240,15 +189,6 @@
 	fitted = NO_FEMALE_UNIFORM
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
-
-/obj/item/clothing/under/lawyer/purpsuit/skirt
-	name = "purple suitskirt"
-	icon_state = "lawyer_purp_skirt"
-	item_state = "lawyer_purp"
-	item_color = "lawyer_purp_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/lawyer/blacksuit
 	name = "black suit"
@@ -259,16 +199,6 @@
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 
-/obj/item/clothing/under/lawyer/blacksuit/skirt
-	name = "black suitskirt"
-	desc = "A professional black suitskirt. Nanotrasen Investigation Bureau approved!"
-	icon_state = "reallyblack_suit_skirt"
-	item_state = "bar_suit"
-	item_color = "reallyblack_suit_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/curator
 	name = "sensible suit"
 	desc = "It's very... sensible."
@@ -276,16 +206,6 @@
 	item_state = "red_suit"
 	item_color = "red_suit"
 	can_adjust = FALSE
-
-/obj/item/clothing/under/rank/curator/skirt
-	name = "sensible suitskirt"
-	desc = "It's very... sensible."
-	icon_state = "red_suit_skirt"
-	item_state = "red_suit"
-	item_color = "red_suit_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/curator/treasure_hunter
 	name = "treasure hunter uniform"
@@ -300,16 +220,6 @@
 	icon_state = "mime"
 	item_state = "mime"
 	item_color = "mime"
-
-/obj/item/clothing/under/rank/mime/skirt
-	name = "mime's skirt"
-	desc = "It's not very colourful."
-	icon_state = "mime_skirt"
-	item_state = "mime"
-	item_color = "mime_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/miner
 	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."

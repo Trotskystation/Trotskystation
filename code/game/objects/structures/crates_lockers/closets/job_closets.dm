@@ -120,7 +120,6 @@
 		/obj/item/storage/backpack/satchel/sec = 1,
 		/obj/item/storage/backpack/duffelbag/sec = 2,
 		/obj/item/clothing/under/rank/security = 3,
-		/obj/item/clothing/under/rank/security/skirt = 2,
 		/obj/item/clothing/shoes/jackboots = 3,
 		/obj/item/clothing/head/beret/sec = 3,
 		/obj/item/clothing/head/soft/sec = 3,

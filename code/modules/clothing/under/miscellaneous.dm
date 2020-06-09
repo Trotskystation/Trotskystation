@@ -30,16 +30,6 @@
 	item_color = "scratch"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/scratch/skirt
-	name = "white suitskirt"
-	desc = "A white suitskirt, suitable for an excellent host."
-	icon_state = "white_suit_skirt"
-	item_state = "scratch"
-	item_color = "white_suit_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/sl_suit
 	desc = "It's a very amish looking suit."
 	name = "amish suit"
@@ -205,16 +195,6 @@
 	item_color = "green_suit"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/gimmick/rank/captain/suit/skirt
-	name = "green suitskirt"
-	desc = "A green suitskirt and yellow necktie. Exemplifies authority."
-	icon_state = "green_suit_skirt"
-	item_state = "dg_suit"
-	item_color = "green_suit_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit
 	name = "head of personnel's suit"
 	desc = "A teal suit and yellow necktie. An authoritative yet tacky ensemble."
@@ -222,16 +202,6 @@
 	item_state = "g_suit"
 	item_color = "teal_suit"
 	can_adjust = FALSE
-
-/obj/item/clothing/under/gimmick/rank/head_of_personnel/suit/skirt
-	name = "teal suitskirt"
-	desc = "A teal suitskirt and yellow necktie. An authoritative yet tacky ensemble."
-	icon_state = "teal_suit_skirt"
-	item_state = "g_suit"
-	item_color = "teal_suit_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/suit_jacket
 	name = "black suit"
@@ -319,49 +289,6 @@
 	item_state = "burial"
 	item_color = "burial"
 	has_sensor = NO_SENSORS
-
-/obj/item/clothing/under/skirt/black
-	name = "black skirt"
-	desc = "A black skirt, very fancy!"
-	icon_state = "blackskirt"
-	item_color = "blackskirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	fitted = FEMALE_UNIFORM_TOP
-	can_adjust = FALSE
-
-/obj/item/clothing/under/skirt/blue
-	name = "blue skirt"
-	desc = "A blue, casual skirt."
-	icon_state = "blueskirt"
-	item_color = "blueskirt"
-	item_state = "b_suit"
-	body_parts_covered = CHEST|GROIN|ARMS
-	fitted = FEMALE_UNIFORM_TOP
-	can_adjust = FALSE
-	custom_price = 25
-
-/obj/item/clothing/under/skirt/red
-	name = "red skirt"
-	desc = "A red, casual skirt."
-	icon_state = "redskirt"
-	item_color = "redskirt"
-	item_state = "r_suit"
-	body_parts_covered = CHEST|GROIN|ARMS
-	fitted = FEMALE_UNIFORM_TOP
-	can_adjust = FALSE
-	custom_price = 25
-
-/obj/item/clothing/under/skirt/purple
-	name = "purple skirt"
-	desc = "A purple, casual skirt."
-	icon_state = "purpleskirt"
-	item_color = "purpleskirt"
-	item_state = "p_suit"
-	body_parts_covered = CHEST|GROIN|ARMS
-	fitted = FEMALE_UNIFORM_TOP
-	can_adjust = FALSE
-	custom_price = 25
-
 
 /obj/item/clothing/under/schoolgirl
 	name = "blue schoolgirl uniform"
@@ -572,37 +499,6 @@
 	fitted = FEMALE_UNIFORM_TOP
 	can_adjust = FALSE
 
-/obj/item/clothing/under/plaid_skirt
-	name = "red plaid skirt"
-	desc = "A preppy red skirt with a white blouse."
-	icon_state = "plaid_red"
-	item_state = "plaid_red"
-	item_color = "plaid_red"
-	fitted = FEMALE_UNIFORM_TOP
-	can_adjust = TRUE
-	alt_covers_chest = TRUE
-	custom_price = 25
-
-/obj/item/clothing/under/plaid_skirt/blue
-	name = "blue plaid skirt"
-	desc = "A preppy blue skirt with a white blouse."
-	icon_state = "plaid_blue"
-	item_state = "plaid_blue"
-	item_color = "plaid_blue"
-	fitted = FEMALE_UNIFORM_TOP
-	can_adjust = TRUE
-	alt_covers_chest = TRUE
-
-/obj/item/clothing/under/plaid_skirt/purple
-	name = "purple plaid skirt"
-	desc = "A preppy purple skirt with a white blouse."
-	icon_state = "plaid_purple"
-	item_state = "plaid_purple"
-	item_color = "plaid_purple"
-	fitted = FEMALE_UNIFORM_TOP
-	can_adjust = TRUE
-	alt_covers_chest = TRUE
-
 /obj/item/clothing/under/singery
 	name = "yellow performer's outfit"
 	desc = "Just looking at this makes you want to sing."
@@ -624,16 +520,6 @@
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	fitted = FEMALE_UNIFORM_TOP
 	can_adjust = FALSE
-
-/obj/item/clothing/under/plaid_skirt/green
-	name = "green plaid skirt"
-	desc = "A preppy green skirt with a white blouse."
-	icon_state = "plaid_green"
-	item_state = "plaid_green"
-	item_color = "plaid_green"
-	fitted = FEMALE_UNIFORM_TOP
-	can_adjust = TRUE
-	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/jester
 	name = "jester suit"
@@ -821,39 +707,3 @@
 	desc = "A blue mech pilot's suit. For the more reluctant mech pilots."
 	icon_state = "blue_mech_suit"
 	item_state = "blue_mech_suit"
-
-/obj/item/clothing/under/lampskirt
-	name = "lamp dress"
-	desc = "A peculier garment woven in silk; under the lower dress appears to be a lamp and a switch."
-	icon_state = "lampskirt_male"
-	item_state = "lampskirt_male"
-	item_color = "lampskirt_male"
-	body_parts_covered = CHEST|GROIN|LEGS|FEET
-	can_adjust = FALSE
-	var/brightness_on = 1 //luminosity when the light is on
-	var/on = FALSE
-	actions_types = list(/datum/action/item_action/toggle_helmet_light)
-
-/obj/item/clothing/under/lampskirt/attack_self(mob/user)
-	on = !on
-	icon_state = "[initial(icon_state)][on ? "-light":""]"
-	item_state = icon_state
-	user.update_inv_w_uniform() //So the mob overlay updates
-
-	if(on)
-		set_light(brightness_on)
-		user.visible_message("<span class='notice'>[user] discreetly pulls a cord for the bulbs under [user.p_their()] skirt, turning [user.p_them()] on.</span>")
-	else
-		set_light(0)
-
-	for(var/X in actions)
-		var/datum/action/A=X
-		A.UpdateButtonIcon()
-
-/obj/item/clothing/under/lampskirt/female
-	icon_state = "lampskirt_female"
-	item_state = "lampskirt_female"
-	item_color = "lampskirt_female"
-	body_parts_covered = CHEST|GROIN|LEGS|FEET
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP

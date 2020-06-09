@@ -28,17 +28,6 @@
 	item_state = "gy_suit"
 	item_color = "security"
 
-/obj/item/clothing/under/rank/security/skirt
-	name = "security jumpskirt"
-	desc = "A \"tactical\" security jumpsuit with the legs replaced by a skirt."
-	icon_state = "secskirt"
-	item_state = "r_suit"
-	item_color = "secskirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE //you know now that i think of it if you adjust the skirt and the sprite disappears isn't that just like flashing everyone
-	fitted = FEMALE_UNIFORM_TOP
-
-
 /obj/item/clothing/under/rank/warden
 	name = "security suit"
 	desc = "A formal security suit for officers. Complete with Nanotrasen belt buckle."
@@ -73,16 +62,6 @@
 	sensor_mode = 3
 	random_sensor = FALSE
 
-/obj/item/clothing/under/rank/det/skirt
-	name = "detective's suitskirt"
-	desc = "Someone who wears this means business."
-	icon_state = "detective_skirt"
-	item_state = "det"
-	item_color = "detective_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/det/grey
 	name = "noir suit"
 	desc = "A hard-boiled private investigator's grey suit, complete with tie clip."
@@ -90,16 +69,6 @@
 	item_state = "greydet"
 	item_color = "greydet"
 	alt_covers_chest = TRUE
-
-/obj/item/clothing/under/rank/det/grey/skirt
-	name = "noir suitskirt"
-	desc = "A hard-boiled private investigator's grey suitskirt, complete with tie clip."
-	icon_state = "greydet_skirt"
-	item_state = "greydet"
-	item_color = "greydet_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /*
  * Head of Security

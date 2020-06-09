@@ -10,16 +10,6 @@
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 35)
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/research_director/skirt
-	name = "research director's vest suitskirt"
-	desc = "It's a suitskirt worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
-	icon_state = "director_skirt"
-	item_state = "lb_suit"
-	item_color = "director_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/research_director/alt
 	desc = "Maybe you'll engineer your own half-man, half-pig creature some day. Its fabric provides minor protection from biological contaminants."
 	name = "research director's tan suit"
@@ -30,16 +20,6 @@
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 
-/obj/item/clothing/under/rank/research_director/alt/skirt
-	name = "research director's tan suitskirt"
-	desc = "Maybe you'll engineer your own half-man, half-pig creature some day. Its fabric provides minor protection from biological contaminants."
-	icon_state = "rdwhimsy_skirt"
-	item_state = "rdwhimsy"
-	item_color = "rdwhimsy_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
-
 /obj/item/clothing/under/rank/research_director/turtleneck
 	desc = "A dark purple turtleneck and tan khakis, for a director with a superior sense of style."
 	name = "research director's turtleneck"
@@ -49,16 +29,6 @@
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
-
-/obj/item/clothing/under/rank/research_director/turtleneck/skirt
-	name = "research director's turtleneck skirt"
-	desc = "A dark purple turtleneck and tan khaki skirt, for a director with a superior sense of style."
-	icon_state = "rdturtle_skirt"
-	item_state = "p_suit"
-	item_color = "rdturtle_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE
-	fitted = FEMALE_UNIFORM_TOP
 
 /obj/item/clothing/under/rank/scientist
 	desc = "It's made of a special fiber that provides minor protection against explosives. It has markings that denote the wearer as a scientist."
