@@ -4,7 +4,14 @@
 /datum/controller/subsystem/ticker/proc/choose_lobby_music()
 	//Add/remove songs from this list individually, rather than multiple at once. This makes it easier to judge PRs that change the list, since PRs that change it up heavily are less likely to meet broad support
 	//Add a comment after the song link in the format [Artist - Name]
-	var/list/songs = list("https://www.youtube.com/watch?v=s7dTBoW5H9k", 	// Electric Light Orchestra - Mr. Blue Sky
+	var/list/songs = list()
+	
+	//trot start
+	if(isfile('config/lobbymusic_links.txt'))
+		songs = world.file2list('config/lobbymusic_links.txt')
+	if(!songs.len)
+		songs = list("https://www.youtube.com/watch?v=s7dTBoW5H9k", 	// Electric Light Orchestra - Mr. Blue Sky
+	//trots end
 		"https://www.youtube.com/watch?v=WEhS9Y9HYjU", 						// Noel Harrison - The Windmills of Your Mind
 		"https://www.youtube.com/watch?v=UPHmazxB38g", 						// MashedByMachines - Sector11
 		"https://soundcloud.com/jeffimam/title-plasma-attack", 				// Jeff Imam - Title - Plasma Attack

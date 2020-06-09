@@ -1,0 +1,13 @@
+sound/roundend/newroundsexy.ogg
+sound/roundend/apcdestroyed.ogg
+sound/roundend/bangindonk.ogg
+sound/roundend/leavingtg.ogg
+sound/roundend/its_only_game.ogg
+sound/roundend/yeehaw.ogg
+yogstation/sound/roundend/aww_shit.ogg
+yogstation/sound/roundend/ass_blast_usa.ogg
+sound/roundend/itshappening.ogg
+yogstation/sound/roundend/bamboozeled.ogg
+sound/roundend/disappointed.ogg
+sound/roundend/scrunglartiy.ogg
+sound/roundend/windowsxp.ogg
