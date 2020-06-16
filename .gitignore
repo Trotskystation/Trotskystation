@@ -4,6 +4,9 @@
 /data/**/*
 /tmp/**/*
 
+#Ignore shadow config directory with secrets.
+/shadow/**/*
+
 #Ignore byond config folder.
 /cfg/**/*
 
