@@ -1,3 +1,6 @@
+## Trotskystation shadow config:
+$include ../shadow/comms.txt
+
 ## Communication key for receiving data through world/Topic(), you don't want to give this out
 #COMMS_KEY default_pwd
 

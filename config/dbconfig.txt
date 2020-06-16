@@ -1,3 +1,6 @@
+##Trotskystation shadow config:
+$include ../shadow/dbconfig.txt
+
 ## MySQL Connection Configuration
 ## This is used for stats, feedback gathering,
 ## administration, and the in game library.
