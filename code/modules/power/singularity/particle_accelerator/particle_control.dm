@@ -9,8 +9,11 @@
 	idle_power_usage = 500
 	active_power_usage = 10000
 	dir = NORTH
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
+	ui_x = 350
+	ui_y = 185
 	var/strength_upper_limit = 2
-	var/interface_control = 1
+	var/interface_control = TRUE
 	var/list/obj/structure/particle_accelerator/connected_parts
 	var/assembled = FALSE
 	var/construction_state = PA_CONSTRUCTION_UNSECURED
@@ -336,6 +339,65 @@
 /obj/machinery/particle_accelerator/control_box/blob_act(obj/structure/blob/B)
 	if(prob(50))
 		qdel(src)
+
+/obj/machinery/particle_accelerator/control_box/interact(mob/user)
+	if(construction_state == PA_CONSTRUCTION_PANEL_OPEN)
+		wires.interact(user)
+	else
+		..()
+
+/obj/machinery/particle_accelerator/control_box/proc/is_interactive(mob/user)
+	if(!interface_control)
+		to_chat(user, "<span class='alert'>ERROR: Request timed out. Check wire contacts.</span>")
+		return FALSE
+	if(construction_state != PA_CONSTRUCTION_COMPLETE)
+		return FALSE
+	return TRUE
+
+/obj/machinery/particle_accelerator/control_box/ui_status(mob/user)
+	if(is_interactive(user))
+		return ..()
+	return UI_CLOSE
+
+/obj/machinery/particle_accelerator/control_box/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, \
+									datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
+	if(!ui)
+		ui = new(user, src, ui_key, "ParticleAccelerator", name, ui_x, ui_y, master_ui, state)
+		ui.open()
+
+/obj/machinery/particle_accelerator/control_box/ui_data(mob/user)
+	var/list/data = list()
+	data["assembled"] = assembled
+	data["power"] = active
+	data["strength"] = strength
+	return data
+
+/obj/machinery/particle_accelerator/control_box/ui_act(action, params)
+	if(..())
+		return
+
+	switch(action)
+		if("power")
+			if(wires.is_cut(WIRE_POWER))
+				return
+			toggle_power()
+			. = TRUE
+		if("scan")
+			part_scan()
+			. = TRUE
+		if("add_strength")
+			if(wires.is_cut(WIRE_STRENGTH))
+				return
+			add_strength()
+			. = TRUE
+		if("remove_strength")
+			if(wires.is_cut(WIRE_STRENGTH))
+				return
+			remove_strength()
+			. = TRUE
+
+	update_icon()
 
 #undef PA_CONSTRUCTION_UNSECURED
 #undef PA_CONSTRUCTION_UNWIRED
