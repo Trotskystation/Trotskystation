@@ -1,6 +1,3 @@
-##Trotskystation shadow config:
-$include ../shadow/dbconfig.txt
-
 ## MySQL Connection Configuration
 ## This is used for stats, feedback gathering,
 ## administration, and the in game library.
@@ -46,3 +43,6 @@ BSQL_THREAD_LIMIT 50
 
 ## Uncomment to enable verbose BSQL communication logs
 #BSQL_DEBUG
+
+##Trotskystation shadow config:
+$include ../shadow/dbconfig.txt
