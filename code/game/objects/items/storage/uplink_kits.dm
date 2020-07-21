@@ -154,6 +154,7 @@
 			new /obj/item/clothing/suit/space/hardsuit/carp(src)
 			new /obj/item/clothing/mask/gas/carp(src)
 			new /obj/item/grenade/spawnergrenade/spesscarp(src)
+			new /obj/item/twohanded/pitchfork/trident(src)
 
 		if("mad_scientist")
 			new /obj/item/clothing/suit/toggle/labcoat/mad(src) // 0 tc
@@ -231,7 +232,7 @@
 /obj/item/stand_arrow/boss/Initialize()
 	. = ..()
 	for(var/mob/living/M in range(0,src)) //this is probably a bad way of doing this help
-		if(M && M.mind && M.mind.has_antag_datum(/datum/antagonist/traitor)) //don't think I have a better way of checking
+		if(M?.mind?.has_antag_datum(/datum/antagonist/traitor)) //don't think I have a better way of checking
 			owner = M.mind
 
 /obj/item/stand_arrow/boss/attack(mob/living/M, mob/living/user)

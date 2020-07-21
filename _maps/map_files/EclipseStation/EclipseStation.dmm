@@ -9002,16 +9002,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/dorms/a)
-"asf" = (
-/obj/structure/table/wood,
-/obj/structure/mirror{
-	pixel_x = -28
-	},
-/obj/item/flashlight/lamp/bananalamp{
-	pixel_y = 3
-	},
-/turf/open/floor/wood,
-/area/crew_quarters/theatre)
 "asg" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -9716,14 +9706,6 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/plasteel,
 /area/janitor/a)
-"atF" = (
-/obj/structure/closet/secure_closet/personal,
-/obj/structure/extinguisher_cabinet{
-	dir = 4;
-	pixel_x = 24
-	},
-/turf/open/floor/plasteel,
-/area/crew_quarters/dorms/a)
 "atG" = (
 /turf/closed/wall,
 /area/medical/chemistry)
@@ -10734,15 +10716,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/dorms/a)
-"avV" = (
-/obj/structure/closet/secure_closet/personal,
-/obj/machinery/camera{
-	c_tag = "Crew Dorm Laundry";
-	dir = 4;
-	network = list("ss13")
-	},
-/turf/open/floor/plasteel,
-/area/crew_quarters/dorms/a)
 "avW" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/light/small{
@@ -11155,13 +11128,6 @@
 /obj/machinery/light{
 	dir = 4;
 	light_color = "#e8eaff"
-	},
-/turf/open/floor/plasteel,
-/area/crew_quarters/dorms/a)
-"awR" = (
-/obj/structure/closet/secure_closet/personal,
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/dorms/a)
@@ -32186,10 +32152,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/security/checkpoint/auxiliary)
-"bnL" = (
-/obj/machinery/ticket_machine,
-/turf/closed/wall,
-/area/crew_quarters/heads/hop)
 "bnM" = (
 /obj/machinery/light{
 	dir = 1
@@ -33838,10 +33800,6 @@
 /turf/open/floor/wood,
 /area/crew_quarters/heads/hop)
 "brd" = (
-/obj/machinery/button/ticket_machine{
-	pixel_x = 24;
-	pixel_y = 36
-	},
 /obj/machinery/button/door{
 	id = "hopqueue";
 	name = "Queue Shutters Control";
@@ -37329,6 +37287,7 @@
 /area/maintenance/department/cargo)
 "bxN" = (
 /obj/structure/table,
+/obj/item/ticket_machine_remote,
 /turf/open/floor/carpet/blue,
 /area/crew_quarters/heads/hop)
 "bxO" = (
@@ -47623,7 +47582,7 @@
 /area/hallway/secondary/command)
 "bRF" = (
 /obj/structure/table,
-/obj/item/aiModule/core/full/corp,
+/obj/item/aiModule/core/full/ceo,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "bRG" = (
@@ -76703,14 +76662,6 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/crew_quarters/dorms/b)
-"cYo" = (
-/obj/machinery/camera{
-	c_tag = "Rec Deck Bathrooms";
-	dir = 8;
-	network = list("ss13")
-	},
-/turf/open/floor/plasteel,
-/area/crew_quarters/dorms/b)
 "cYp" = (
 /obj/item/bikehorn/rubberducky,
 /obj/effect/landmark/xeno_spawn,
@@ -82809,6 +82760,19 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
+"dkm" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/extinguisher_cabinet{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/machinery/camera{
+	c_tag = "Crew Dorm Laundry";
+	dir = 8;
+	network = list("ss13")
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/dorms/a)
 "dnz" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -83375,6 +83339,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary)
+"fpe" = (
+/obj/machinery/ticket_machine,
+/turf/open/floor/carpet/exoticblue,
+/area/hallway/secondary/command)
 "fra" = (
 /obj/structure/cable{
 	icon_state = "4-8";
@@ -84445,6 +84413,12 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/heads/cmo)
+"iiH" = (
+/obj/machinery/stasis{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/medical/medbay/central)
 "ilY" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -84826,6 +84800,17 @@
 	icon_state = "white"
 	},
 /area/science/robotics/lab)
+"jqF" = (
+/obj/machinery/camera{
+	c_tag = "Rec Deck Bathrooms";
+	dir = 8;
+	network = list("ss13")
+	},
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/dorms/b)
 "jEo" = (
 /obj/effect/turf_decal/tile/white{
 	dir = 1
@@ -85448,6 +85433,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/red,
 /area/hallway/primary/fore)
+"lHJ" = (
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/obj/machinery/computer/cryopod{
+	dir = 1;
+	pixel_y = -26
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/dorms/b)
 "lHM" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -86678,6 +86673,23 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
+"poL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/machinery/computer/cryopod{
+	dir = 4;
+	pixel_x = -26
+	},
+/turf/open/floor/plasteel,
+/area/security/prison)
 "pqy" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3{
@@ -87267,6 +87279,12 @@
 /obj/item/stack/sheet/metal/fifty,
 /turf/open/floor/plating/airless,
 /area/construction)
+"rxZ" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/dorms/a)
 "ryq" = (
 /obj/machinery/light{
 	dir = 4;
@@ -87753,6 +87771,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
+"tjL" = (
+/obj/item/radio/intercom{
+	freerange = 1;
+	name = "Common Channel";
+	pixel_x = 5;
+	pixel_y = 28
+	},
+/obj/structure/closet/secure_closet/personal,
+/turf/open/floor/plasteel,
+/area/crew_quarters/dorms/a)
 "tjU" = (
 /obj/machinery/vending/cola/random,
 /obj/machinery/camera{
@@ -88591,6 +88619,16 @@
 /obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/floor/plating,
 /area/maintenance/department/bridge)
+"vNw" = (
+/obj/machinery/computer/cryopod{
+	dir = 4;
+	pixel_x = -26
+	},
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/dorms/a)
 "vOo" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
@@ -88785,6 +88823,13 @@
 /obj/effect/spawner/lootdrop/maintenance/two,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"wph" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/dorms/a)
 "wpS" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
@@ -88919,6 +88964,19 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/main)
+"wDl" = (
+/obj/structure/table/wood,
+/obj/structure/mirror{
+	pixel_x = -28
+	},
+/obj/item/flashlight/lamp/bananalamp{
+	pixel_y = 3
+	},
+/obj/item/phone/banana{
+	layer = 2.9
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/theatre)
 "wDN" = (
 /obj/structure/window/spawner{
 	dir = 1;
@@ -98688,7 +98746,7 @@ brD
 bfS
 bgq
 bgo
-biX
+iiH
 bgo
 biX
 bvS
@@ -114177,7 +114235,7 @@ cLW
 cXW
 cYb
 cXG
-cOR
+lHJ
 avq
 avp
 avq
@@ -114434,7 +114492,7 @@ avq
 cLW
 cLW
 cXG
-cYo
+jqF
 avq
 avp
 avp
@@ -123363,7 +123421,7 @@ jSj
 jSj
 ccx
 chQ
-bnL
+boS
 boS
 bpN
 bqX
@@ -124388,7 +124446,7 @@ bNP
 cjQ
 bpV
 bTm
-bpV
+fpe
 blB
 hxY
 bxV
@@ -124556,7 +124614,7 @@ abE
 aaQ
 ack
 abQ
-afa
+poL
 abL
 abe
 acf
@@ -131270,8 +131328,8 @@ aab
 asa
 aqd
 aqd
-avV
-awR
+vNw
+rxZ
 axO
 azQ
 aab
@@ -132038,11 +132096,11 @@ aah
 aim
 aah
 aab
-aqb
-aqd
-arM
-atF
+tjL
 ave
+arM
+dkm
+wph
 avU
 aww
 aab
@@ -135895,7 +135953,7 @@ alM
 anV
 aqI
 alM
-asf
+wDl
 atZ
 avR
 alM

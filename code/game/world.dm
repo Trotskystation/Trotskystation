@@ -227,6 +227,11 @@ GLOBAL_VAR(restart_counter)
 		to_chat(world, "<span class='boldannounce'>Rebooting world...</span>")
 		Master.Shutdown()	//run SS shutdowns
 
+	for(var/boi in GLOB.clients)
+		var/client/C = boi
+		if(!istype(C)) continue //yes so this is useful to prevent nulls from preventing the server from rebooting...
+		sync_logout_with_db(C.connection_number)
+
 	TgsReboot()
 
 	if(TEST_RUN_PARAMETER in params)
