@@ -1,7 +1,6 @@
 TROTSKYSTATION TODO FILE
 
 Short term:
-Fix compile failure due to missing skirt item placed in map from upstream.
 Cleanup database.
 Update database schema.
 
