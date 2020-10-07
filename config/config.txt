@@ -1,6 +1,7 @@
 # You can use the "$include" directive to split your configs however you want
 
 $include game_options.txt
+$include secret.txt
 $include dbconfig.txt
 $include comms.txt
 $include antag_rep.txt
@@ -39,9 +40,6 @@ ROUND_END_COUNTDOWN 90
 
 ##Uncomment this to stop any admins loaded by the legacy system from having their rank edited by the permissions panel
 #PROTECT_LEGACY_ADMINS
-
-##Uncomment this to stop any ranks loaded by the legacy system from having their flags edited by the permissions panel
-#PROTECT_LEGACY_RANKS
 
 ##Uncomment this to have admin ranks only loaded from the legacy admin_ranks.txt
 ##If enabled, each time admins are loaded ranks the database will be updated with the current ranks and their flags
@@ -82,6 +80,12 @@ LOG_LOOC
 
 ## log client Say
 LOG_SAY
+
+## log telecomms
+LOG_TELECOMMS
+
+## log ntsl compilations
+LOG_NTSL
 
 ## log admin actions
 LOG_ADMIN
@@ -175,7 +179,7 @@ ALLOW_VOTE_RESTART
 #ALLOW_VOTE_MODE
 
 ## allow players to initiate a map-change vote
-#ALLOW_VOTE_MAP
+ALLOW_VOTE_MAP
 
 ## min delay (deciseconds) between voting sessions (default 10 minutes)
 VOTE_DELAY 6000
@@ -386,7 +390,7 @@ PREFERENCE_MAP_VOTING 1
 ## This is the chance of map rotation factored to the round length.
 ## A value of 1 would mean the map rotation chance is the round length in minutes (hour long round == 60% rotation chance)
 ## A value of 0.5 would mean the map rotation chance is half of the round length in minutes (hour long round == 30% rotation chance)
-#MAPROTATIONCHANCEDELTA 0.75
+MAPROTATIONCHANCEDELTA 0
 
 ## AUTOADMIN
 ## The default admin rank
@@ -515,8 +519,6 @@ DEFAULT_VIEW_SQUARE 15x15
 
 #Mentors only see ckeys by default. Uncomment to have them only see mob name
 #MENTORS_MOBNAME_ONLY
-<<<<<<< HEAD
-=======
 
 ## Uncomment below to make everyone a donator
 #EVERYONE_IS_DONATOR
@@ -524,4 +526,3 @@ DEFAULT_VIEW_SQUARE 15x15
 ## Uncomment to enable global ban DB using the provided URL. The API should expect to receive a ckey at the end of the URL.
 ## More API details can be found here: https://centcom.melonmesa.com
 CENTCOM_BAN_DB https://centcom.melonmesa.com/ban/search
->>>>>>> upstream/master
