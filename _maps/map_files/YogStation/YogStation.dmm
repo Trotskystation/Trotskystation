@@ -46462,10 +46462,6 @@
 	dir = 8
 	},
 /obj/structure/table,
-/obj/item/clothing/under/yogs/rank/clerk/skirt{
-	pixel_x = 2;
-	pixel_y = -2
-	},
 /obj/item/storage/box/fancy/donut_box{
 	pixel_x = -2;
 	pixel_y = 10
