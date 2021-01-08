@@ -11,7 +11,7 @@
 #define ROLE_OPERATIVE			"Operative"
 #define ROLE_CHANGELING			"Changeling"
 #define ROLE_WIZARD				"Wizard"
-#define ROLE_RAGINMAGES			"Ragin' Mages"
+#define ROLE_RAGINMAGES			"Ragin Mages"
 #define ROLE_BULLSHITMAGES		"Bullshit Mages"
 #define ROLE_MALF				"Malf AI"
 #define ROLE_REV				"Revolutionary"
@@ -45,7 +45,8 @@
 #define ROLE_GANG				"gangster" // Yogs
 #define ROLE_DARKSPAWN			"darkspawn" //Yogs
 #define ROLE_HOLOPARASITE		"Holoparasite" // Yogs
-#define ROLE_ZOMBIE				"Zombie" //Yogs
+#define ROLE_ZOMBIE				"Zombie"
+
 
 //Missing assignment means it's not a gamemode specific role, IT'S NOT A BUG OR ERROR.
 //The gamemode specific ones are just so the gamemodes can query whether a player is old enough
@@ -81,8 +82,8 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_INTERNAL_AFFAIRS = /datum/game_mode/traitor/internal_affairs,
 	ROLE_DARKSPAWN = /datum/game_mode/darkspawn,
 	ROLE_SENTIENCE,
-	ROLE_FUGITIVE,
-	ROLE_ZOMBIE
+	ROLE_ZOMBIE = /datum/game_mode/zombie,
+	ROLE_FUGITIVE
 ))
 
 //Job defines for what happens when you fail to qualify for any job during job selection

@@ -3,6 +3,10 @@
 	Currently contains speech spans and message modes
 */
 
+#define RADIO_EXTENSION "department specific"
+#define RADIO_KEY "department specific key"
+#define LANGUAGE_EXTENSION "language specific"
+
 //Message modes. Each one defines a radio channel, more or less.
 #define MODE_HEADSET "headset"
 #define MODE_ROBOT "robot"
@@ -20,6 +24,7 @@
 #define MODE_KEY_BINARY "b"
 #define MODE_TOKEN_BINARY ":b"
 
+#define WHISPER_MODE "the type of whisper"
 #define MODE_WHISPER "whisper"
 #define MODE_WHISPER_CRIT "whispercrit"
 
@@ -34,6 +39,9 @@
 #define MODE_KEY_DEADMIN "d"
 
 #define MODE_ALIEN "alientalk"
+#define MODE_KEY_ALIEN "a"
+#define MODE_TOKEN_ALIEN ":a"
+
 #define MODE_HOLOPAD "holopad"
 
 #define MODE_CHANGELING "changeling"
@@ -45,7 +53,11 @@
 
 #define MODE_MONKEY "monkeyhive"
 
+#define MODE_SING "sing"
+
 #define MODE_DARKSPAWN "mindlink"
+#define MODE_KEY_DARKSPAWN  "w"
+#define MODE_TOKEN_DARKSPAWN  ":w"
 
 //Spans. Robot speech, italics, etc. Applied in compose_message().
 #define SPAN_ROBOT "robot"
@@ -56,11 +68,12 @@
 #define SPAN_REALLYBIG "reallybig"
 #define SPAN_COMMAND "command_headset"
 #define SPAN_CLOWN "clown"
+#define SPAN_SINGING "singing"
 
 //bitflag #defines for return value of the radio() proc.
-#define ITALICS 1
-#define REDUCE_RANGE 2
-#define NOPASS 4
+#define ITALICS			(1<<0)
+#define REDUCE_RANGE	(1<<1)
+#define NOPASS			(1<<2)
 
 //Eavesdropping
 #define EAVESDROP_EXTRA_RANGE 1 //how much past the specified message_range does the message get starred, whispering only
@@ -80,3 +93,10 @@
 #define MAX_NAME_LEN			42
 #define MAX_BROADCAST_LEN		512
 #define MAX_CHARTER_LEN			80
+
+// Audio/Visual Flags. Used to determine what sense are required to notice a message.
+#define MSG_VISUAL (1<<0)
+#define MSG_AUDIBLE (1<<1)
+
+//Used in visible_message_flags, audible_message_flags and runechat_flags
+#define EMOTE_MESSAGE (1<<0)

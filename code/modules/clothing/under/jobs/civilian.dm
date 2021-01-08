@@ -221,6 +221,15 @@
 	item_state = "mime"
 	item_color = "mime"
 
+/obj/item/clothing/under/rank/artist
+	name = "post-modern suit"
+	desc = "Only the most modern of folk have the right to wear this suit."
+	icon_state = "artist"
+	item_state = "artist"
+	item_color = "artist"
+	can_adjust = FALSE
+	fitted = FEMALE_UNIFORM_TOP
+
 /obj/item/clothing/under/rank/miner
 	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."
 	name = "shaft miner's jumpsuit"

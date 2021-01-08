@@ -38,6 +38,7 @@ GLOBAL_LIST_EMPTY(donators)
 
 	//BASIC SHIT
 	var/s = ""
+	s += "<img src=\"https://i.imgur.com/gNgarRJ.gif\">" //Banner image
 	var/server_name = CONFIG_GET(string/servername)
 	if (server_name)
 		s += "<b>[server_name]</b> &#8212; "
