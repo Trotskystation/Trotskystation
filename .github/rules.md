@@ -1,10 +1,10 @@
 # The Rules
-Hi. Thanks a lot for reading these. If you have any questions on any of the rules do not hesitate to adminhelp (using F1 in-game) or message a member of staff/leadership on discord.
+Hi. Thanks a lot for reading these. If you have any questions on any of the rules do not hesitate to adminhelp (using F1 in-game) or message a member of staff/leadership on Discord.
 
 ## Core Rules
 These apply everywhere.
 
-### 0.0: Don’t be a dick. Don't behave in a manner that goes out of its way to deprive the enjoyment of others. These rules are not an exhaustive list. Rules-lawyering is strongly discouraged. If an admin asks you to knock something off, 'well it's not in the rules' is not an argument. The staff team maintains the right to arbitrarily remove people that are a clear detriment to the community as a whole.
+### 0.0: Don't be a dick. Don't behave in a manner that goes out of its way to deprive the enjoyment of others. These rules are not an exhaustive list. Rules-lawyering is strongly discouraged. If an admin asks you to knock something off, 'well it's not in the rules' is not an argument. The staff team maintains the right to arbitrarily remove people that are a clear detriment to the community as a whole.
 
 **0.1: Listen to admins.** Everything is subject to admin discretion. If you cannot be contacted, you may be banned and have you explain your part of the story on the forums. Ignoring admin PMs, lying, insulting admins or other players, et cetera will be counted against you and will lead to a ban.
 
